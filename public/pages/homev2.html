@@ -1,0 +1,552 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link icon-only panel-open" data-panel="left">
+                        <span class="new-notification"></span>
+                        <i class="icon material-icons">menu</i>
+                    </a>
+                </div>
+                <div class="title"><img src="img/logo-header.png" alt="" class="header-logo"> </div>
+                <div class="right">
+                    <a href="/noticationslist/" class="link icon-only">
+                        <i class="material-icons">notifications_none</i><span class="counts">9+</span>
+                    </a>
+                    <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-components">
+                        <i class="icon material-icons">search</i>
+                    </a>
+                </div>
+
+                <form data-search-container=".components-list" data-search-in="a"
+                    class="searchbar searchbar-expandable searchbar-components searchbar-init">
+                    <div class="searchbar-inner">
+                        <div class="searchbar-input-wrap">
+                            <input type="search" placeholder="Search components" />
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                        </div>
+                        <span class="searchbar-disable-button if-not-aurora"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="toolbar tabbar toolbar-bottom o-visible">
+            <div class="toolbar-inner o-visible tabs-max-width">
+                <a href="#home" class="tab-link"><i class="material-icons">home</i></a>
+                <a href="#tryout" class="tab-link"><i class="material-icons">create</i></a>
+                <a href="#hasil" class="tab-link"><i class="material-icons">assignment_turned_in</i></a>
+                <a href="#profile" class="tab-link"><i class="material-icons">account_circle</i></a>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div id="home" class="page-content tab tab-active">
+                <div class="block">
+                    <div class="card bg-template shadow mt-4 h-140">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-60"><img src="img/user3.png" alt=""></figure>
+                                </div>
+                                <div class="col pl-0 align-self-center">
+                                    <h5 class="mb-1 mt-0">Muhammad Raffi</h5>
+                                    <p class="text-mute small my-0">XII RPL 4</p>
+                                    <p class="text-mute small my-0">SMK Telkom Malang</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="link popover-open" data-popover=".popover-menu">
+                                        <i class="material-icons text-color-white">more_vert</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" style="margin-top: -40px">
+                    <div class="row">
+                        <div class="col text-align-center">
+                            <h4><strong>Jadwal Ujian</strong></h4>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+                    <h6 class="medium" style="margin-top: 5px"><i class="fa fa-calendar"></i><strong class="ml-2">Senin,
+                            22 Juni 2020</strong></h6>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Bahasa Indonesia</strong></h6>
+                                    <span class="badge color-lightblue small vm text-white mt-1 mb-1">Sudah Ujian</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Agus Haripurwanto</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">08.00 - 10.00</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan
+                                            Kelas</strong></p>
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 28px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-primary link">
+                                        <a href="/sudahujian/">
+                                            <i class="material-icons" style="color: white;">check_circle_outline</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Internet Of Things</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Agus Haripurwanto</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan
+                                            Kelas</strong></p>
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 28px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="card shadow border-0 mb-3 mt-2">
+                            <div class="card-content card-content-padding">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6 class="font-weight-normal my-0"><strong>Matematika</strong></h6>
+                                        <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                        <p class="text-mute small text-secondary mt-0 mb-0">Tulus Ardianto</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p>
+                                    </div>
+                                    <div class="col-auto pl-0" style="padding-top: 28px">
+                                        <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                            <a href="/detailujian/">
+                                                <i class="material-icons" style="color: white;">content_paste</i>
+                                            </a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    <div class="post-wrap-border"></div>
+                    <h6 class="medium" style="margin-top: 5px"><i class="fa fa-calendar"></i><strong
+                            class="ml-2">Selasa, 23 Juni 2020</strong></h6>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="font-weight-normal my-0"><strong>Matmematika</strong></p>
+                                    <span class="badge color-red small vm text-white mt-1 mb-1">Akses ditutup</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Prof. Tejo Subambang</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">08.00 - 10.00</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan
+                                            Kelas</strong></p>
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 28px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-danger link">
+                                        <i class="material-icons" style="color: white;">remove_circle</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="font-weight-normal my-0"><strong>Desain Grafis</strong></p>
+                                    <span class="badge color-red small vm text-white mt-1 mb-1">Akses ditutup</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Dr. Djatmiko</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan
+                                            Kelas</strong></p>
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 28px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-danger link">
+                                        <i class="material-icons" style="color: white;">remove_circle</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+                    <h6 class="medium" style="margin-top: 5px"><i class="fa fa-calendar"></i><strong class="ml-2">Rabu,
+                            24 Juni 2020</strong></h6>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="font-weight-normal my-0"><strong>Bahasa Inggris</strong></p>
+                                    <span class="badge color-red small vm text-white mt-1 mb-1">Akses ditutup</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Mr. Adi Soeherman</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">08.00 - 10.00</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan
+                                            Kelas</strong></p>
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 28px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-danger link">
+                                        <i class="material-icons" style="color: white;">remove_circle</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="font-weight-normal my-0"><strong>Komjardas</strong></p>
+                                    <span class="badge color-red small vm text-white mt-1 mb-1">Akses ditutup</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Dr. Djatmiko</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan
+                                            Kelas</strong></p>
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 28px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-danger link">
+                                        <i class="material-icons" style="color: white;">remove_circle</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+                </div>
+            </div>
+
+            <div id="tryout" class="page-content tab">
+
+
+                <div class="block" style="margin-top: 5px">
+                    <div class="row">
+                        <div class="col text-align-center">
+                            <h4><strong>Try Out</strong></h4>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Bahasa Indonesia</strong></h6>
+                                    <span class="badge color-lightblue small vm text-white mt-1 mb-1">Sudah Ujian</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Agus Haripurwanto</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">08.00 - 10.00</p> -->
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0"><strong>Ujian Kenaikan Kelas</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-primary link">
+                                        <a href="/sudahujian/">
+                                            <i class="material-icons" style="color: white;">check_circle_outline</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Matematika</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Tulus Ardianto</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Fisika</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Dr Djatmiko</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Komjardas</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Adi Soeherman</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Agama</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Siswantoro</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Bahasa Inggris</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Andree Rivan</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>PKN</strong></h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">David</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">11.00 - 12.00</p>
+                                        <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-success link">
+                                        <a href="/detailujian/">
+                                            <i class="material-icons" style="color: white;">content_paste</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+                </div>
+            </div>
+
+            <div id="hasil" class="page-content tab">
+
+
+                <div class="block" style="margin-top: 5px">
+                    <div class="row">
+                        <div class="col text-align-center">
+                            <h4><strong>Hasil Try Out</strong></h4>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+
+                    <!-- <h6 class="medium" style="margin-top: 5px"><i class="fa fa-calendar"></i><strong class="ml-2">Senin, 22 Juni 2020</strong></h6> -->
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Bahasa Indonesia</strong></h6>
+                                    <span class="badge color-lightblue small vm text-white mt-1 mb-1">Sudah Ujian</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Agus Haripurwanto</p>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">22 Juni 2020 : 08.01</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">08.02</p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 18px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-primary link">
+                                        <a href="/dto/">
+                                            <p style="color: white; font-size: 20px;"><strong>80</strong></p>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Matematika</strong></h6>
+                                    <span class="badge color-yellow small vm text-white mt-1 mb-1">Belum
+                                        Mengerjakan</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Tulus Ardianto</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">13.00 - 14.00</p> -->
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-warning link">
+                                        <a href="">
+                                            <i class="material-icons" style="color: white;">error_outline</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="post-wrap-border"></div>
+                        <h6 class="medium" style="margin-top: 5px"><i class="fa fa-calendar"></i><strong class="ml-2">Selasa, 23 Juni 2020</strong></h6> -->
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Fisika</strong></h6>
+                                    <span class="badge color-yellow small vm text-white mt-1 mb-1">Belum
+                                        Mengerjakan</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Dr Djatmiko</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">08.00 - 10.00</p> -->
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-warning link">
+                                        <a href="">
+                                            <i class="material-icons" style="color: white;">error_outline</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow border-0 mb-3 mt-2">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0"><strong>Komjardas</strong></h6>
+                                    <span class="badge color-yellow small vm text-white mt-1 mb-1">Belum
+                                        Mengerjakan</span>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Adi Soeherman</p>
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0">13.00 - 14.00</p> -->
+                                    <!-- <p class="text-mute small text-secondary mt-0 mb-0"><strong>Try Out</strong></p> -->
+                                </div>
+                                <div class="col-auto pl-0" style="padding-top: 8px">
+                                    <button class="avatar avatar-50 no-shadow border-0 gradient-warning link">
+                                        <a href="">
+                                            <i class="material-icons" style="color: white;">error_outline</i>
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-wrap-border"></div>
+                </div>
+            </div>
+
+            <div id="profile" class="page-content tab">
+                <div class="block">
+                    <div class="card bg-template shadow mt-4 h-140">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-60"><img src="img/user3.png" alt=""></figure>
+                                </div>
+                                <div class="col pl-0 align-self-center">
+                                    <h5 class="mb-1 mt-0">Muhammad Raffi</h5>
+                                    <p class="text-mute small my-0">XII RPL 4</p>
+                                    <p class="text-mute small my-0">SMK Telkom Malang</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="link popover-open" data-popover=".popover-menu">
+                                        <i class="material-icons text-color-white">more_vert</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="card shadow border-0 mb-3">
+                        <div class="card-content card-content-padding">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="font-weight-normal my-0">Nomor Peserta Ujian</h6>
+                                    <!-- <span class="badge color-lightblue small vm text-white mt-1 mb-1">Sudah Ujian</span> -->
+                                    <p class="text-mute small text-secondary mt-0 mb-0">000188128882</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">NISN</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">128912773778</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">NIS</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">9929/222112.101</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Kelas</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">XII 4</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Jurusan</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Rekayasa Perangkat Lunak</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Absen</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">29</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Jenis Kelamin</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Laki - Laki</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Agama</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">Islam</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">E-Mail</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">
+                                        m_raffi_30rpl@student.smktelkom-mlg.sch.id</p>
+                                    <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Telepone</h6>
+                                    <p class="text-mute small text-secondary mt-0 mb-0">09881888288</p>
+                                    <!-- <div class="post-wrap-border"></div>
+                                    <h6 class="font-weight-normal my-0">Status</h6>
+                                    <span class="badge color-green small vm text-white mt-1 mb-1">Akses dibuka</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

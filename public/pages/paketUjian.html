@@ -1,0 +1,291 @@
+<div class="page light">
+    <div class="navbar">
+        <div class="navbar-bg bg-template"></div>
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a href="#" class="link back">
+              <i class="icon icon-back text-color-white"></i>
+              <span class="if-not-md">Back</span>
+            </a>
+          </div>
+          <div class="title text-color-white">Daftar Paket Ujian</div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="block">
+            <div class="card shadow mt-4 bg-template h-140">
+                <div class="card-content card-content-padding">
+                    <div class="row pb-2">
+                        <div class="col-auto">
+                            <button class="button button-fill button-raised color-white button-rounded-54 align-self-center"><span class="text-color-blue">XII</span></button>
+                        </div>
+                        <div class="col pl-0 align-self-center">
+                            <h6 class="mb-2 mt-0"><a href="/detailPU/" class="text-color-white">Matematika-XII</a></h6>
+                            <h6 class="text-mute small my-0 mb-2">2020/2021</h6>
+                            <h6 class="text-mute small my-0">SMK Telkom Malang</h6>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+          <div class="card shadow mt-4 bg-template h-140">
+            <div class="card-content card-content-padding">
+                <div class="row pb-2">
+                    <div class="col-auto">
+                        <button class="button button-fill button-raised color-white button-rounded-54 align-self-center"><span class="text-color-blue">XI</span></button>
+                    </div>
+                    <div class="col pl-0 align-self-center">
+                        <h6 class="mb-2 mt-0"><a href="/detailPU/" class="text-color-white">Matematika-XI</a></h6>
+                        <h6 class="text-mute small my-0 mb-2">2020/2021</h6>
+                        <h6 class="text-mute small my-0">SMK Telkom Malang</h6>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+            <a href="#" 
+            class="popup-open bg-template" 
+            data-popup=".addUjian" 
+            style="
+            position: fixed;
+            z-index: 777;
+            display: block;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            bottom: 30px;
+            right: 30px;
+            line-height: 46px;
+            text-align: center;
+            ">
+                <div class="overlay"></div>
+                <i class="fa fa-plus text-color-white" style="font-size: 18px;"></i>
+            </a>
+        </div>
+    </div>
+    <div class="popover popover-menuUjian">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+          <div class="list">
+            <ul>
+                <li><a href="#" class="list-button popover-close popup-open" data-popup=".editUjian">Edit</a></li> 
+                <li><a href="#" class="list-button popover-close">Delete</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="popup addUjian">
+      <div class="page light">
+        <div class="navbar">
+          <div class="navbar-bg bg-template"></div>
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a href="#" class="popup-close link">
+                <i class="icon icon-back text-color-white"></i>
+                <span class="if-not-md">Back</span>
+              </a>
+            </div>
+            <div class="title text-color-white">Tambah Paket Ujian</div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="list no-hairlines-md">
+            <ul class="pb-4">
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0px;"><h6 class="mt-0 mb-0">Judul</h6></div>
+                  <div class="item-input-wrap">
+                    <input type="text" placeholder="Judul">
+                    <span class="input-clear-button"></span>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Mata Pelajaran</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="Matematika">Matematika</option>
+                      <option value="Ilmu Pengetahuan Alam">Ilmu Pengetahuan Alam</option>
+                      <option value="Ilmu Pengetahuan Sosial">Ilmu Pengetahuan Sosial</option>
+                      <option value="Pendidikan Kewarga Negaraan">Pendidikan Kewarga Negaraan</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Kelas</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="X">X</option>
+                      <option value="XI">XI</option>
+                      <option value="XII">XII</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Jurusan</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                      <option value="Tekhnik KOmputer dan Jaringan">Tekhnik Komputer dan Jaringan</option>
+                      <option value="Multimedia">Multimedia</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Tanggal Ujian Dibuka</h6></div>
+                  <div class="item-input-wrap">
+                    <input type="date" value="2014-04-30" placeholder="Please choose..." class="input-with-value">
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Tanggal Ujian Ditutup</h6></div>
+                  <div class="item-input-wrap">
+                    <input type="date" value="2014-04-30" placeholder="Please choose..." class="input-with-value">
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Durasi</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="30 Menit">30 Menit</option>
+                      <option value="45 Menit">45 Menit</option>
+                      <option value="60 Menit">60 Menit</option>
+                      <option value="90 Menit">90 Menit</option>
+                      <option value="120 Menit">120 Menit</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Nilai KKM</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="60">60</option>
+                      <option value="70">70</option>
+                      <option value="75">75</option>
+                      <option value="80">80</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+            <div class="toolbar toolbar-bottom">
+              <div class="toolbar-inner segmented segmented-round text-align-center">
+                <a href="#" class="button button-raised button-fill button-large color-blue popup-close"><i class="material-icons">done</i> <span class="small">Simpan</span></a>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="popup editUjian">
+      <div class="page light">
+        <div class="navbar">
+          <div class="navbar-bg bg-template"></div>
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back text-color-white"></i>
+                <span class="if-not-md">Back</span>
+              </a>
+            </div>
+            <div class="title text-color-white">Tambah Soal</div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="list no-hairlines-md">
+            <ul class="pb-4">
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0px;"><h6 class="mt-0 mb-0">Topik</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="Penjumlahan">Penjumlahan</option>
+                      <option value="Pengurangan">Pengurangan</option>
+                      <option value="Perkalian">Perkalian</option>
+                      <option value="Pembagian">Pembagian</option>
+                      
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Tingkat Kesulitan</h6></div>
+                  <div class="item-input-wrap input-dropdown-wrap">
+                    <select placeholder="Mohon dipilih">
+                      <option value="Ez Pz">Ez Pz</option>
+                      <option value="Mudah">Mudah</option>
+                      <option value="Sedang">Sedang</option>
+                      <option value="Sulit">Sulit</option>
+                    </select>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Pertanyaan</h6></div>
+                  <div class="item-input-wrap">
+                    <textarea placeholder="Masukkan pertanyaan anda di sini!!"></textarea>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Gambar</h6></div>
+                  <div class="item-input-wrap">
+                    <h6 class="mt-0 mb-0 ml-2 pt-2">
+                      <i class="material-icons vm md-36 text-template" aria-hidden="true">camera_alt</i>
+                      <span class="ml-2">Tambahkan gambar</span>
+                    </h6>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Pesan Suara</h6></div>
+                  <div class="item-input-wrap">
+                    <h6 class="mt-0 mb-0 ml-2 pt-2">
+                      <i class="material-icons vm md-36 text-template" aria-hidden="true">mic</i>
+                      <span class="ml-2">Tambahkan pesan suara</span>
+                    </h6>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input item-input-outline">
+                <div class="item-inner">
+                  <div class="item-title item-label pb-2" style="left: 0;"><h6 class="mt-0 mb-0">Jawaban</h6></div>
+                  <div class="item-input-wrap">
+                    <h6 class="mt-0 mb-0 ml-2 pt-2">
+                      <i class="material-icons vm md-36 text-template" aria-hidden="true">add_box</i>
+                      <span class="ml-2">Tambahkan Jawaban</span>
+                    </h6>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+            <div class="toolbar toolbar-bottom">
+              <div class="toolbar-inner segmented segmented-round text-align-center">
+                <a href="/daftarSoal/" class="button button-raised button-fill button-large color-blue popup-close"><i class="material-icons">done</i> <span class="small">Simpan</span></a>
+              </div>
+            </div>
+      </div>
+    </div>
+</div>
