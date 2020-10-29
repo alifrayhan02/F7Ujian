@@ -256,6 +256,14 @@ var routes = [
     componentUrl: './pages/detailto.html',
   },
   {
+    path: '/nilai/',
+    componentUrl: './pages/inputnilai.html',
+  },
+  {
+    path: '/iklan/',
+    componentUrl: './pages/iklan.html',
+  },
+  {
     path: '/sudahujian/',
     componentUrl: './pages/detailujianv2.html',
   },

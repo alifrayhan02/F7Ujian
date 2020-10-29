@@ -1,6 +1,25 @@
 // Dom7
 var $ = Dom7;
 
+function onDeviceReady() {
+    document.addEventListener("backbutton", onBackKeyDown, false)
+  }
+  
+  function onBackKeyDown() {
+    if (app.popup.get('.popup') == undefined && app.dialog.get() == undefined) {
+        app.views.current.router.back();
+    } else {
+      if (app.popup.get('.popup') != undefined)
+        app.popup.get('.popup').close()
+      
+      if (app.dialog.get() != undefined)
+        app.dialog.close()
+    }
+    return false
+  }
+  
+  document.addEventListener('deviceready', onDeviceReady, false)
+
 // Theme
 var theme = 'auto';
 if (document.location.search.indexOf('theme=') >= 0) {
