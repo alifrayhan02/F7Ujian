@@ -1,0 +1,175 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a href="#" class="link back">
+                  <i class="icon icon-back"></i>
+                  <span class="if-not-md">Back</span>
+                </a>
+              </div>
+              <div class="title " style="margin-left: -10px;">Acara</div>
+              <div class="right">
+                <a class="ml-2 mr-2" href="/kalender_akademik/">
+                  <i class="icon material-icons">save</i>
+                </a>
+                <a class="ml-2 mr-2 popover-open" data-popover=".popover-menu-jadwal-tambah">
+                    <i class="icon material-icons">more_vert</i>
+                </a>
+              </div>
+            </div>
+        </div>
+        <div class="page-content">
+          <div class="list no-hairlines-md">
+            <ul>
+              <li class="item-content item-input">
+                <div class="item-media">
+                  <a><i class="material-icons">event_note</i></a>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title item-floating-label">Nama Acara</div>
+                  <div class="item-input-wrap">
+                    <input type="text" placeholder="Masukkan nama acara">
+                    <span class="input-clear-button"></span>
+                  </div>
+                </div>
+              </li>
+              <li class="item-content item-input">
+                <div class="item-media">
+                  <a><i class="material-icons">event_available</i></a>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title item-floating-label">Tanggal Acara</div>
+                  <div class="item-input-wrap">
+                    <input type="text" placeholder="Masukkan tanggal mulai" readonly="readonly" id="demo-calendar-range"/>
+                    <span class="input-clear-button"></span>
+                  </div>
+                </div>
+              </li>
+             
+              <li class="item-content item-input">
+                <div class="item-media">
+                  <a><i class="material-icons">note</i></a>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title item-floating-label">Catatan</div>
+                  <div class="item-input-wrap">
+                    <textarea class="resizable" placeholder="Masukkan catatan"></textarea>
+                    <span class="input-clear-button"></span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="block bottom-button-container">
+            <a href="/kalender_akademik/" class="button button-raised button-fill button-large button-round color-default">Simpan</a>
+        </div>
+        <div class="popover popover-menu-jadwal-tambah">
+            <div class="popover-angle"></div>
+            <div class="popover-inner">
+                <div class="list">
+                    <ul>
+                      <li><a href="/penjadwalan/" class="list-button popover-close">Jadwal Pelajaran</a></li>
+                      <li><a href="/jadwalGuru/" class="list-button popover-close">Jadwal Guru</a></li>
+                      <li><a href="/jadwalRuang/" class="list-button popover-close">Jadwal Ruangan</a></li>
+                      <li><a href="/kelas/" class="list-button popover-close">Kelas</a></li>
+                      <li><a href="/kalender_akademik/" class="list-button popover-close">Kalender Akademik</a></li>
+                      <li><a href="/langkah/" class="list-button popover-close">Pengaturan</a></li>
+                    </ul>
+                  </div>
+               </div>
+            </div>
+    </div>
+</template>
+<script>
+  return {
+    on: {
+      pageInit: function(e, page) {
+        var self = this;
+        var today = new Date();
+        var app = self.$app;
+        var $ = self.$;
+        // Default
+        self.calendarDefault = app.calendar.create({
+          inputEl: '#demo-calendar-default',
+        });
+        
+        // With custom date format
+        self.calendarDateFormat = app.calendar.create({
+          inputEl: '#demo-calendar-date-format',
+          dateFormat: { weekday: 'long', month: 'long', day: '2-digit', year: 'numeric' },
+        });
+
+        // Date + Time
+        self.calendarDateTime = app.calendar.create({
+          inputEl: '#demo-calendar-date-time',
+          timePicker: true,
+          dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
+        });
+
+        // With multiple values
+        self.calendarMultiple = app.calendar.create({
+          inputEl: '#demo-calendar-multiple',
+          dateFormat: { month: 'short', day: 'numeric' },
+          multiple: true
+        });
+        // Range Picker
+        self.calendarRange = app.calendar.create({
+          inputEl: '#demo-calendar-range',
+          rangePicker: true
+        });
+        // Custom modal
+        self.calendarModal = app.calendar.create({
+          inputEl: '#demo-calendar-modal',
+          openIn: 'customModal',
+          header: true,
+          footer: true,
+        });
+        // Inline with custom toolbar
+        var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        self.calendarInline = app.calendar.create({
+          containerEl: '#demo-calendar-inline-container',
+          value: [new Date()],
+          renderToolbar: function() {
+            return '<div class="toolbar calendar-custom-toolbar no-shadow">' +
+              '<div class="toolbar-inner">' +
+              '<div class="left">' +
+              '<a href="#" class="link icon-only"><i class="icon icon-back"></i></a>' +
+              '</div>' +
+              '<div class="center"></div>' +
+              '<div class="right">' +
+              '<a href="#" class="link icon-only"><i class="icon icon-forward"></i></a>' +
+              '</div>' +
+              '</div>' +
+              '</div>';
+          },
+          on: {
+            init: function(c) {
+              $('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+              $('.calendar-custom-toolbar .left .link').on('click', function() {
+                self.calendarInline.prevMonth();
+              });
+              $('.calendar-custom-toolbar .right .link').on('click', function() {
+                self.calendarInline.nextMonth();
+              });
+            },
+            monthYearChangeStart: function(c) {
+              $('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+            }
+          }
+        });
+      },
+      pageBeforeRemove() {
+        var self = this;
+        self.calendarDefault.destroy();
+        self.calendarDateFormat.destroy();
+        self.calendarDateTime.destroy();
+        self.calendarMultiple.destroy();
+        self.calendarRange.destroy();
+        self.calendarModal.destroy();
+        self.calendarInline.destroy();
+      },
+    },
+  }
+</script>

@@ -1,0 +1,332 @@
+<template>
+    <div class="page light">
+      <div class="navbar no-shadow">
+        <div class="navbar-inner sliding">
+          <div class="navbar-bg"></div>
+          <div class="left">
+            <a href="#" class="link back">
+              <i class="icon icon-back"></i>
+              <span class="if-not-md">Back</span>
+            </a>
+          </div>
+          <div class="title" style="margin:0;">Kalender Akademik</div>
+          <div class="right">
+            <a class="ml-2 mr-2" href="/tambah_event/">
+              <i class="icon material-icons">add</i>
+          </a>
+            <a class="mr-2 ml-2 popover-open" data-popover=".popover-menu-jadwal">
+              <i class="icon material-icons">more_vert</i>
+          </a>
+          </div>        
+        </div>
+      </div>
+      <div class="fab fab-extended fab-right-bottom color-red">
+        <a href="/tambah_event/" class="text-color-white">
+          <i class="icon f7-icons if-not-md">plus</i>
+          <i class="icon material-icons md-only">add</i>
+        </a>
+      </div>
+      <div class="page-content">
+        <div id="calendar" class="block block-strong no-padding no-margin no-hairline-top"></div>
+        <div id="calendar-events" class="list no-margin no-hairlines no-safe-area-left">
+            <!-- <h6 class="ml-2 mt-3 text-mute">Rabu, 02 September 2020</h6> -->
+            <br>
+            
+          <ul>
+            {{#each eventItems}}
+                <li class="item-content sheet-open" data-sheet=".demo-sheet-swipe-to-close-kalenderAkademik">
+                    <div class="event-color" style="background-color: {{color}}"></div>
+                    <div class="item-inner">
+                      <div class="item-title">{{title}}
+                          <br>
+                          <small class="text-mute text-secondary"></small>
+                      </div>                  
+                    </div>
+                </li>
+            {{else}}
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title text-color-gray">Tidak ada acara atau libur</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="popover popover-menu-jadwal">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list">
+                <ul>
+                  <li><a href="/penjadwalan/" class="list-button popover-close">Jadwal Pelajaran</a></li>
+                  <li><a href="/jadwalGuru/" class="list-button popover-close">Jadwal Guru</a></li>
+                  <li><a href="/jadwalRuang/" class="list-button popover-close">Jadwal Ruangan</a></li>
+                  <li><a href="/kelas/" class="list-button popover-close">Kelas</a></li>
+                  <li><a href="/langkah/" class="list-button popover-close">Pengaturan</a></li>
+                </ul>
+              </div>
+           </div>
+        </div>
+        <div class="sheet-modal demo-sheet-swipe-to-close-kalenderAkademik" style="height:auto">
+          <div class="sheet-modal-inner">
+            <div class="swipe-handler"></div>
+            <div class="page-content">
+              {{#each eventItems}}
+              <div class="block-title text-align-center" style="background-color: {{color}};"><h4 class="mb-3">{{title}}</h4></div>
+              <div class="list">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="material-icons vm text-template">date_range</i></div>
+                      <div class="item-inner">
+                          <div class="item-title">Tanggal Mulai</div>
+                          <div class="item-after" id="jamKe">25 September 2020</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="material-icons vm text-template">date_range</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Tanggal Selesai</div>
+                        <div class="item-after" id="jamKe">25 September 2002</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="media-list">
+                    <div class="item-content">
+                      <div class="item-media"><i class="material-icons vm text-template">event_note</i></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">Catatan</div>
+                        </div>
+                        <div class="text-mute">Odading mang oleh emh rasanya seperti anda menjadi ironman</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                {{/each}}
+              </div>
+              <div class="block">
+                <div class="block">
+                  <p class="row">
+                    <a class="col button button-fill button-round color-red mr-1" @click="hapusConfirm">Hapus</a>
+                    <a href="/edit_event/" id="edit" class="col button button-fill button-round ml-1">Edit</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</template>
+  <style>
+    #calendar, #calendar-events {
+      height: 50%;
+      box-sizing: border-box;
+    }
+    #calendar .calendar {
+      height: 100%;
+    }
+    #calendar-events ul {
+      height: 100%;
+      overflow: auto;
+    }
+    #calendar-events .event-color {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 8px;
+      height: 100%;
+    }
+    @media (orientation: landscape) {
+      #calendar {
+        float: left;
+      }
+      #calendar, #calendar-events {
+        height: 100%;
+      }
+      #calendar, #calendar-events {
+        width: 50%;
+      }
+      #calendar-events {
+        margin-left: 50% !important;
+        border-left: 1px solid #eee;
+      }
+      .theme-dark #calendar-events {
+        border-left-color: #282828;
+      }
+    }
+  </style>
+  <script>
+    return {
+      data: function () {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var day = date.getDate();
+        return {
+          eventItems: [],
+          today: new Date(year, month, day),
+          events: [
+            {
+              date: new Date(year, month, day),
+              title: 'HUT Sekolah',
+              color: 'lightgrey',
+            },
+            {
+              date: new Date(year, month, day + 1),
+              title: 'Bulan Bahasa',
+              color: 'green',
+            },
+            {
+              date: new Date(year, month, day + 10),
+              title: 'Libur Cuti',
+              color: 'red',
+
+            },
+        ]
+        }
+      },
+      methods: {
+        hapusConfirm: function () {
+        var app = this.$app;
+        var self=this;
+        app.dialog.confirm('Apakah anda ingin menghapus acara ini ?','',
+        function (){self.$app.sheet.close();},  )
+      },
+      toggleSwipeStep: function () {
+      var self = this;
+      self.sheetSwipeToStep.stepToggle();
+    },
+    createSheet: function () {
+      var self = this;
+      // Create sheet modal
+      if (!self.sheet) {
+        self.sheet = self.$app.sheet.create({
+          content: '\
+            <div class="sheet-modal">\
+              <div class="toolbar">\
+                <div class="toolbar-inner justify-content-flex-end">\
+                  <a href="#" class="link sheet-close">Close</a>\
+                </div>\
+              </div>\
+              <div class="sheet-modal-inner">\
+                <div class="page-content">\
+                  <div class="block">\
+                    <p>This sheet modal was created dynamically</p>\
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus mauris leo, eu bibendum neque congue non. Ut leo mauris, eleifend eu commodo a, egestas ac urna. Maecenas in lacus faucibus, viverra ipsum pulvinar, molestie arcu. Etiam lacinia venenatis dignissim. Suspendisse non nisl semper tellus malesuada suscipit eu et eros. Nulla eu enim quis quam elementum vulputate. Mauris ornare consequat nunc viverra pellentesque. Aenean semper eu massa sit amet aliquam. Integer et neque sed libero mollis elementum at vitae ligula. Vestibulum pharetra sed libero sed porttitor. Suspendisse a faucibus lectus.</p>\
+                  </div>\
+                </div>\
+              </div>\
+            </div>\
+          '
+        });
+      }
+      // Close inline sheet
+      if (self.$('.demo-sheet.modal-in').length > 0) self.$app.sheet.close('.demo-sheet');
+      // Open it
+      self.sheet.open();
+    },
+        openDemo1: function () {
+          var self = this;
+          self.actions1.open();
+        },
+        renderEvents: function (calendar) {
+          var self = this;
+          var currentDate = calendar.value[0];
+          var currentEvents = self.events
+            .filter(function (event) {
+              return (
+                event.date.getTime() >= currentDate.getTime() &&
+                event.date.getTime() < currentDate.getTime() + 24 * 60 * 60 * 1000
+              );
+            });
+  
+          const eventItems = [];
+          if (currentEvents.length) {
+            currentEvents.forEach(function (event) {
+              const hours = event.hours;
+              let minutes = event.minutes;
+              if (minutes < 10) minutes = `0${minutes}`;
+              eventItems.push({
+                title: event.title,
+                room:event.room,
+                time: `${hours}:${minutes}`,
+                color: event.color,
+              });
+            });
+          }
+          self.$setState({
+            eventItems: eventItems,
+          });
+        },
+      },
+      on: {
+      pageInit: function (e, page) {
+        var self = this;
+        var app = self.$app;
+        var $ = self.$;
+        
+        self.sheetSwipeToClose = self.$app.sheet.create({
+        el: '.demo-sheet-swipe-to-close-kalenderAkademik',
+        swipeToClose: true,
+        push: true,
+        backdrop: true,
+      });
+        var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+        self.calendarInline = app.calendar.create({
+          containerEl: '#calendar',
+          events: self.events,
+          value: [new Date()],
+          renderToolbar: function() {
+            return '<div class="toolbar calendar-custom-toolbar no-shadow">' +
+              '<div class="toolbar-inner">' +
+              '<div class="left">' +
+              '<a href="#" class="link icon-only"><i class="icon icon-back"></i></a>' +
+              '</div>' +
+              '<div class="center"></div>' +
+              '<div class="right">' +
+              '<a href="#" class="link icon-only"><i class="icon icon-forward"></i></a>' +
+              '</div>' +
+              '</div>' +
+              '</div>';
+          },
+          on: {
+            init: function(c) {
+              $('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+              $('.calendar-custom-toolbar .left .link').on('click', function() {
+                self.calendarInline.prevMonth();
+              });
+              $('.calendar-custom-toolbar .right .link').on('click', function() {
+                self.calendarInline.nextMonth();
+              });
+             
+            },
+            monthYearChangeStart: function(c) {
+              $('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+            },
+            change: function (calendar) {
+              self.renderEvents(calendar);
+            }
+          }
+        });
+      },
+      pageBeforeOut: function () {
+      var self = this;
+      // Close opened sheets on page out
+      self.$app.sheet.close();
+    },
+      pageBeforeRemove() {
+        var self = this;
+        self.calendar.destroy();
+        if (self.sheet) self.sheet.destroy();
+        if (self.sheetPush) self.sheetPush.destroy();
+        if (self.sheetSwipeToClose) self.sheetSwipeToClose.destroy();
+        if (self.sheetSwipeToStep) self.sheetSwipeToStep.destroy();
+      },
+    },
+    }
+  </script>
+  
+  

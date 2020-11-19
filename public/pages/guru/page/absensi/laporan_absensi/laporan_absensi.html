@@ -1,0 +1,480 @@
+<template>
+  <div class="page page-homepage light" data-name="homepage">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="back">
+            <i class="icon icon-back mr-3 ml-3"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title" style="margin-left: -10px;">Absensi Harian</div>
+        <div class="right">
+          <a href="#" style="margin-right: 20px;">
+            <i class="icon material-icons md-only">exit_to_app</i>
+          </a>
+          <a href="#" id="test1" class="accordion-item-toggle">
+            <i class="icon material-icons">tune</i>
+          </a>
+          <a class="popover-open mr-2 ml-2" data-popover=".popover-menu-laporan">
+            <i class="icon material-icons">more_vert</i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr" @ptr:pullstart="start">
+      <div class="ptr-preloader" id="ptr4" style="display: none;">
+        <div class="preloader"></div>
+        <div class="ptr-arrow"></div>
+      </div>
+      <!-- Awal Filter -->
+      <div class="accordion-item accor accordion-item-opened">
+        <div class="accordion-item-content">
+          <div class="list no-hairlines-md">
+            <div class="block mt-0">
+              <div class="card mb-2 mt-0">
+                <div class="card-content card-content-padding">
+                  <div class="list no-hairlines-md">
+                    <ul>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                          data-page-title="Pilih Sekolah" data-searchbar="true"
+                          data-searchbar-placeholder="Cari Sekolah">
+                          <select name="sekolah" @change="filterAktif">
+                            <option value="SMK Telkom Malang" selected>SMK Telkom Malang</option>
+                            <option value="SMK Brantas">SMK Brantas</option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">account_balance</i>
+                              </figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Sekolah</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                          data-page-title="Pilih Kategori" data-searchbar="true"
+                          data-searchbar-placeholder="Cari Kategori">
+                          <select name="sekolah" @change="filterAktif">
+                            <option value="harian" selected>Harian </option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="IPA">IPA</option>
+                            <option value="IPS">IPS</option>
+                            <option value="PKN">PKN</option>
+                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">view_module</i>
+                              </figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Kategori</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a>
+                          <div class="item-content item-input" style="height: 50px;">
+                            <div class="item-media">
+                              <div class="item-media">
+                                <figure class="avatar avatar-30 no-shadow"><i class="material-icons">today</i></figure>
+                              </div>
+                            </div>
+                            <div class="item-inner">
+                              <div class="absen-harian-toolbar no-shadow"
+                                style="background-color: transparent; z-index: 2;">
+                                <div class="toolbar-inner no-shadow" style="background-color: transparent;">
+                                  <div class="left ml-3 text-color-black" id="demo-calendar-laporanAbsensi">
+
+                                  </div>
+                                  <div class="right">
+                                    <a href="#" class="link icon-only mr-1 btn-left"><i
+                                        class="fas fa-arrow-left text-color-black" style="font-size: 15px;"></i></a>
+                                    <a href="#" id="btn-kanan1" class="link icon-only mr-3 ml-1 btn-right"><i
+                                        class="fas fa-arrow-right " style="font-size: 15px;"></i></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Akhir Filter -->
+      <!-- Awal Tabel -->
+      <div class="data-table text-align-center mt-0">
+        <table width="100%" id="tabelLaporanHarian">
+          <thead>
+            <tr>
+              <th class="kelas label-cell">Kelas</th>
+              <th class="hadir numeric-cell">Hadir</th>
+              <th class="sakit numeric-cell">Sakit</th>
+              <th class="ijin numeric-cell">Ijin</th>
+              <th class="alpa numeric-cell">Alpa</th>
+              <th class="totalSIA numeric-cell">SIA</th>
+              <th class="keterangan label-cell">Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#if loading}}
+            <tr>
+              <td class="kelas label-cell skeleton-text ">XII RPL 15</td>
+              <td class="numeric-cell skeleton-text ">32</td>
+              <td class="numeric-cell skeleton-text ">15</td>
+              <td class="numeric-cell skeleton-text ">99</td>
+              <td class="numeric-cell skeleton-text ">99</td>
+              <td class="numeric-cell skeleton-text ">50</td>
+              <td class="keterangan label-cell skeleton-text ">7000Telah Absen</td>
+            </tr>
+            <tr>
+              <td class="kelas label-cell skeleton-text ">XII RPL 15</td>
+              <td class="numeric-cell skeleton-text ">32</td>
+              <td class="numeric-cell skeleton-text ">15</td>
+              <td class="numeric-cell skeleton-text ">99</td>
+              <td class="numeric-cell skeleton-text ">99</td>
+              <td class="numeric-cell skeleton-text">50</td>
+              <td class="keterangan label-cell skeleton-text ">7000Telah Absen</td>
+            </tr>
+            <tr>
+              <td class="kelas label-cell skeleton-text ">XII RPL 15</td>
+              <td class="numeric-cell skeleton-text ">32</td>
+              <td class="numeric-cell skeleton-text ">15</td>
+              <td class="numeric-cell skeleton-text ">99</td>
+              <td class="numeric-cell skeleton-text ">99</td>
+              <td class="numeric-cell skeleton-text">50</td>
+              <td class="keterangan label-cell skeleton-text ">7000Telah Absen</td>
+            </tr>
+            {{else}}
+            <a href="/input_absensi/">
+              <tr @click="pindah">
+                <td class="kelas label-cell"><a>XII RPL 1</a></td>
+                <td class="numeric-cell">32</td>
+                <td class="numeric-cell">15</td>
+                <td class="numeric-cell">1</td>
+                <td class="numeric-cell">2</td>
+                <td class="numeric-cell">50</td>
+                <td class="label-cell">70% Telah Absen</td>
+              </tr>
+            </a>
+            <tr @click="pindah">
+              <td class="kelas label-cell"><a>XII RPL 2</a></td>
+              <td class="numeric-cell">32</td>
+              <td class="numeric-cell">15</td>
+              <td class="numeric-cell">31</td>
+              <td class="numeric-cell">2</td>
+              <td class="numeric-cell">50</td>
+              <td class="keterangan label-cell">70% Telah Absen</td>
+            </tr>
+            <tr @click="pindah">
+              <td class="kelas label-cell"><a>XII RPL 3</a></td>
+              <td class="numeric-cell">32</td>
+              <td class="numeric-cell">15</td>
+              <td class="numeric-cell">99</td>
+              <td class="numeric-cell">99</td>
+              <td class="numeric-cell">50</td>
+              <td class="keterangan label-cell">70% Telah Absen</td>
+            </tr>
+            <tr @click="pindah">
+              <td class="kelas label-cell"><a>XII RPL 1</a></td>
+              <td class="numeric-cell">32</td>
+              <td class="numeric-cell">15</td>
+              <td class="numeric-cell">1</td>
+              <td class="numeric-cell">2</td>
+              <td class="numeric-cell">50</td>
+              <td class="keterangan label-cell">100% Telah Absen</td>
+            </tr>
+            <tr @click="pindah">
+              <td class="kelas label-cell"><a>XII RPL 1</a></td>
+              <td class="numeric-cell">32</td>
+              <td class="numeric-cell">15</td>
+              <td class="numeric-cell">1</td>
+              <td class="numeric-cell">2</td>
+              <td class="numeric-cell">50</td>
+              <td class="keterangan label-cell">100% Telah Absen</td>
+            </tr>
+            <tr @click="pindah">
+              <td class="kelas label-cell"><a>XII RPL 1</a></td>
+              <td class="numeric-cell">32</td>
+              <td class="numeric-cell">15</td>
+              <td class="numeric-cell">1</td>
+              <td class="numeric-cell">2</td>
+              <td class="numeric-cell">50</td>
+              <td class="keterangan label-cell">100% Telah Absen</td>
+            </tr>
+            <tr @click="pindah">
+              <td class="kelas label-cell"><a>XII RPL 1</a></td>
+              <td class="numeric-cell">32</td>
+              <td class="numeric-cell">15</td>
+              <td class="numeric-cell">1</td>
+              <td class="numeric-cell">2</td>
+              <td class="numeric-cell">50</td>
+              <td class="keterangan label-cell">70% Telah Absen</td>
+            </tr>
+            {{/if}}
+          </tbody>
+        </table>
+        <br><br>
+      </div>
+      <!-- Akhir Table -->
+    </div>
+    <div class="popover popketerangan over-menu-laporan">
+      <div class="popover-angle"></div>
+      <div class="popover-inner">
+        <div class="list">
+          <ul>
+            <li><a href="/input_absensi/" class="list-button popover-close">Input Siswa</a></li>
+            <li><a href="/laporan_absensi/" class="list-button popover-close">Laporan Absensi</a></li>
+            <li><a href="/laporan_persiswa/" class="list-button popover-close">Laporan Absensi Per Siswa</a></li>
+            <li><a href="/laporan_perbulan/" class="list-button popover-close">Laporan Absensi Per Bulan</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+  .smart-select-page .page-content .list .item-radio .item-inner {
+    margin-left: -18px;
+  }
+
+  .smart-select-page .page-content .list {
+    margin-top: 0px;
+  }
+
+  span.searchbar-disable-button::after {
+    margin-top: -20px;
+  }
+
+  th.kelas {
+    min-width: 95px;
+    padding-left: 15px;
+  }
+
+  td.kelas {
+    padding-left: 15px;
+  }
+
+  td.keterangan {
+    padding-right: 15px;
+  }
+
+  td.label-cell {
+    padding-right: 0px;
+  }
+
+  th.numeric-cell {
+    padding-right: 0px;
+    padding-left: 0px;
+    min-width: 10px;
+  }
+
+  td.numeric-cell {
+    padding-right: 0px;
+    padding-left: 20px;
+    min-width: 40px;
+  }
+
+  th.label-cell {
+    padding-right: 0px;
+  }
+
+  th.keterangan {
+    min-width: 150px;
+  }
+
+  td {
+    cursor: pointer;
+    margin: 15px 0;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgb(240, 240, 250);
+  }
+</style>
+<script>
+  var dates = new Date();
+  var tahun = dates.getFullYear();
+  var bulan = dates.getMonth();
+  var tgl = dates.getDate();
+  var date = new Date(tahun, bulan, tgl);
+  var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sept', 'Okt',
+    'Nov', 'Des'
+  ];
+  monthNames1 = [
+    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+    'November', 'Desember'
+  ];
+  var pilihTgl = date.getDate();
+  var pilihBulan = date.getMonth();
+  var pilihTahun = date.getFullYear();
+  return {
+    on: {
+      pageInit: function (e, page) {
+        var self = this;
+        var today = new Date();
+        var app = self.$app;
+        // var $ = self.$;
+        var acc = true;
+
+        if (self.loading) return;
+        self.$setState({
+          loading: true,
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading: false
+          });
+        }, 1000);
+        self.renderEvents();
+        $('.absen-harian-toolbar .left').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun);
+        self.renderEvents();
+        $('.absen-harian-toolbar .right .btn-left').on('click', function () {
+          var t = date.setDate(pilihTgl - 1);
+          pilihTgl = date.getDate(t);
+          calendarDefault.setValue([new Date('' + pilihTahun + '/' + monthNames1[pilihBulan] + '/' + pilihTgl +
+            '')]);
+          $('.absen-harian-toolbar .left').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun);
+          self.renderEvents();
+        });
+        $('.absen-harian-toolbar .right .btn-right').on('click', function () {
+          var b = date.setDate(pilihTgl + 1);
+          pilihTgl = date.getDate(b);
+          calendarDefault.setValue([new Date('' + pilihTahun + '/' + monthNames[pilihBulan] + '/' + pilihTgl +
+            '')]);
+          $('.absen-harian-toolbar .left').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun);
+          self.renderEvents();
+        });
+
+        // Default
+        var calendarDefault = app.calendar.create({
+          inputEl: '#demo-calendar-laporanAbsensi',
+          dateFormat: 'd MM yyyy',
+          value: [Date(pilihTahun, pilihBulan, pilihTgl)],
+          closeOnSelect: true,
+          monthNames: [
+            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+            'November', 'Desember'
+          ],
+          monthNamesShort: [
+            'Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogo', 'Sep', 'Okt', 'Nov', 'Dis'
+          ],
+          dayNames: [
+            'Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'
+          ],
+          dayNamesShort: [
+            'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
+          ],
+          on: {
+            dayClick(calendar, dayEl, year, month, day, monthNamesShort) {
+              pilihTgl = day;
+              pilihBulan = month;
+              pilihTahun = year;
+              $('.output-cal').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun)
+              self.$setState({
+                pilihTgl: day,
+                pilihBulan: month,
+                pilihTahun: year
+              });
+            },
+            monthYearChangeStart: function () {
+              $('.output-cal').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun)
+            }
+          },
+        });
+
+        $('#test1').on('click', function () {
+          if (acc === true) {
+            acc = false;
+            app.accordion.close('.accor');
+          } else {
+            acc = true;
+            app.accordion.open('.accor');
+          };
+        });
+      },
+      pageBeforeRemove() {
+        var self = this;
+        self.calendarDefault.destroy();
+      },
+    },
+    methods: {
+      start: function () {
+        $("#ptr4").show();
+      },
+      ptr: function (e, done) {
+        var self = this;
+        var $ = self.$$;
+        self.$setState({
+          loading: true
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading: false
+          });
+          $("#ptr4").hide();
+        }, 1000); // refresh done
+
+        setTimeout(function () {
+          self.$setState({
+            items: self.items,
+          });
+          // Done
+          done();
+        }, 600);
+      },
+      renderEvents: function () {
+        var currentDate = date;
+        var self = this;
+        var sekarang1 = new Date();
+        self.$setState({
+          loading2: true
+        });
+        if (sekarang1.getDate() === pilihTgl && sekarang1.getMonth() === pilihBulan && sekarang1
+          .getFullYear() === pilihTahun) {
+          $('#btn-kanan1').addClass('text-color-gray disabled');
+          $('#btn-kanan1').removeClass('text-color-black');
+        } else if (pilihTgl >= sekarang1.getDate() && sekarang1.getMonth() === pilihBulan && sekarang1
+          .getFullYear() === pilihTahun) {
+          $('#btn-kanan1').addClass('text-color-gray disabled');
+          $('#btn-kanan1').removeClass('text-color-black');
+        } else {
+          $('#btn-kanan1').removeClass('text-color-gray disabled');
+          $('#btn-kanan1').addClass('text-color-black');
+        }
+        setTimeout(function () {
+          self.$setState({
+            loading2: false
+          });
+        }, 600);
+      },
+      filterAktif: function () {
+        var self = this;
+        self.$setState({
+          loading: true
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading: false
+          });
+        }, 1000);
+      },
+      pindah: function () {
+        app.views.main.router.navigate('/input_absensi/');
+      }
+    },
+
+  }
+</script>

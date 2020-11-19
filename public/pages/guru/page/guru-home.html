@@ -1,0 +1,364 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link icon-only panel-open" data-panel="left">
+                        <i class="icon material-icons">menu</i>
+                    </a>
+                </div>
+                <div class="title"><img src="img/logo-header.png" alt="" class="header-logo"> </div>
+                <div class="right">
+                    <a href="/noticationslist/" class="link icon-only">
+                        <i class="material-icons">notifications_none</i><span class="counts">9+</span>
+                    </a>
+                    <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-components">
+                        <i class="icon material-icons">search</i>
+                    </a>
+                </div>
+                <form data-search-container=".components-list" data-search-in="a" class="searchbar searchbar-expandable searchbar-components searchbar-init">
+                    <div class="searchbar-inner">
+                        <div class="searchbar-input-wrap">
+                            <input type="search" placeholder="Cari" />
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                        </div>
+                        <span class="searchbar-disable-button if-not-aurora"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr1" @ptr:pullstart="start1">
+            <div class="ptr-preloader" id="ptr1" style="display: none;">
+                <div class="preloader"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+            {{#if loading}}
+            <div class="block mt-0">
+                <div class="skeleton-block mt-4" style="height: 100px; border-radius: 10px;">
+                </div>
+            </div>
+            <div class="block">
+                <div class="row">
+                    <div class="swiper-container icon-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
+                        <div class="swiper-wrapper">
+                            <div class="text-align-center swiper-slide">
+                                <a href="#" class="link">
+                                <div class="avatar avatar-50 skeleton-block no-shadow border-0 link">
+                                </div>
+                                </a>
+                                <p class="small skeleton-text mt-2">Absensi</p>
+                            </div>
+                            <div class="text-align-center swiper-slide">
+                                <a href="#" class="link">
+                                <div class="avatar skeleton-block avatar-50 no-shadow border-0 link">
+                                </div>
+                                </a>
+                                <p class="small skeleton-text mt-2">Absensi</p>
+                            </div>
+                            <div class="text-align-center swiper-slide">
+                                <a href="#" class="link">
+                                <div class="avatar skeleton-block avatar-50 no-shadow border-0 link">
+                                </div>
+                                </a>
+                                <p class="small skeleton-text mt-2">Absensi</p>
+                            </div>
+                            <div class="text-align-center swiper-slide">
+                                <a href="#" class="link">
+                                <div class="avatar skeleton-block avatar-50 no-shadow border-0 link">
+                                </div>
+                                </a>
+                                <p class="small skeleton-text mt-2">Absensi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <h6 class="block-title skeleton-text">Absensiasadas <a href="#" class="link float-right small">Detail</a></h6>
+                <div class="block px-12">
+                <div class="card">
+                    <div class="card-header skeleton-block bg-template h-10">
+                        <div class="text-align-center">
+                            <div class="row">
+                                <div class="col pl-1 align-self-center text-color-white font-weight-normal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="list sortable">
+                        <ul>
+                            <li class="skeleton-text">
+                                <a href="#" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                    <div class="item-after">09:12</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li class="skeleton-text">
+                                <a href="#" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                    <div class="item-after">08:10</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li class="skeleton-text">
+                                <a href="#" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                    <div class="item-after">07:12</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li class="skeleton-text">
+                                <a href="#" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                        <div class="item-after">06:12</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li class="skeleton-text">
+                                <a href="#" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                    <div class="item-after">05:43</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            {{else}}
+            <div class="block mt-0">
+                <div class="card bg-template shadow mt-4 h-80">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto">
+                                <a href="#" class="item-link" value="0">
+                                    <figure class="avatar avatar-60"><img src="img/user1.png" alt="" id="gambarAktif"></figure>
+                                </a>
+                            </div>
+                            <div class="col pl-0 align-self-center">
+                                <a href="#" class="item-link">
+                                    <h5 class="mb-1 mt-0 text-color-white namaAkunAktif" id="namaAktif">Kemi Sukoharjo</h5>
+                                    <p class="text-mute text-color-white small my-0 infoAkunAktif" id="infoAktif">SMK Telkom Malang</p>
+                                </a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="link popover-open" data-popover=".popover-akun" style="margin-right: -5px;">
+                                    <i class="material-icons text-color-white" >more_vert</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="row">
+                    <div class="swiper-container icon-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
+                        <div class="swiper-wrapper">
+                            <a href="/home_absensi/" class="swiper-slide text-align-center">
+                                <div class="avatar avatar-50 no-shadow border-0 link">
+                                    <div class="overlay bg-template"></div>
+                                    <i class="material-icons text-template">person</i>
+                                </div>
+                                <p class="small mt-2">Absensi</p>
+                            </a>
+                            <a href="/nilai-home/" class="swiper-slide text-align-center">
+                                <div class="avatar avatar-50 no-shadow border-0 link">
+                                    <div class="overlay bg-template"></div>
+                                    <i class="material-icons text-template">assessment</i>
+                                </div>
+                                <p class="small mt-2">Nilai</p>
+                            </a>
+                            <a href="/penjadwalan/" class="swiper-slide text-align-center">
+                                <div class="avatar avatar-50 no-shadow border-0 link">
+                                    <div class="overlay bg-template"></div>
+                                    <i class="material-icons text-template">content_paste</i>
+                                </div>
+                                <p class="small mt-2">Jadwal</p>
+                            </a>
+                            <a href="/jadwal/jadwal-harian/" class="swiper-slide text-align-center">
+                                <div class="avatar avatar-50 no-shadow border-0 link">
+                                    <div class="overlay bg-template"></div>
+                                    <i class="material-icons text-template">schedule</i>
+                                </div>
+                                <p class="small mt-2">Jadwalku</p>
+                            </a>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+            <h6 class="block-title">Jadwal <a href="/jadwal/jadwal-harian/" class="link float-right small">Detail</a></h6>
+            <div class="block px-2">
+                <div class="card">
+                    <div class="card-header bg-template h-10">
+                        <div class="text-align-center">
+                            <div class="row">
+                                <div class="col pl-1 align-self-center text-color-white font-weight-normal" id="tanggal-absen">
+                                    {{tanggal}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="list sortable">
+                        <ul>
+                            <li>
+                                <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar avatar-40 bg-color-red no-shadow border-0">
+                                            <div class="text-color-white">B</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title text-color-black">Bahasa Indonesia</div>
+                                    <div class="item-after">07:00</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar avatar-40 bg-color-yellow no-shadow border-0">
+                                            <div class="text-color-white">S</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title text-color-black">Sejarah Kebudayaan Islam</div>
+                                    <div class="item-after">07:45</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar bg-color-gray avatar-40 no-shadow border-0">
+                                            <div class="text-color-white">I</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title text-color-black">Bahasa Inggris</div>
+                                    <div class="item-after">08:30</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                            <li>
+                                <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                    <div class="item-media">
+                                        <div class="avatar avatar-40 bg-color-green no-shadow border-0">
+                                            <i class="material-icons text-color-white">done</i>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title text-color-black">Matematika</div>
+                                        <div class="item-after">06:12</div>
+                                    </div>
+                                </a>
+                                <div class="sortable-handler"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</template>
+<script>
+
+var hari = new Date();
+var namaHari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus' , 'September' , 'Oktober', 'November', 'Desember'];
+
+setTimeout(function () {
+        notifikasiLinkSmartWarning.open();
+        desc = "Jumat, 1 November 2020 sudah waktunya membayar SPP";
+        title = "Pembayaran SPP tgl 1 November";
+Android.showNotif(desc,title);
+    }, 1000);
+
+    return {
+        data:function() {
+            return {
+                tanggal:namaHari[hari.getDay()]+', '+hari.getDate()+' '+monthNames[hari.getMonth()]+' '+hari.getFullYear(),
+                loading: true,
+            }
+        },
+        methods: {
+            ptr1: function (e, done) {
+                var self = this;
+                var $ = self.$$;
+                self.$setState({    
+                    loading:true
+                });
+                setTimeout(function() {
+                self.$setState({ loading: false });
+                $("#ptr1").hide();
+                }, 1000);// refresh done
+                
+                setTimeout(function () {
+                    self.$setState({
+                        items: self.items,
+                    });
+                // Done
+                done();
+                }, 600);
+                this.Halaman;
+            },
+            start1:function(){
+              $("#ptr1").show();
+            },
+            halAwal: function (){
+                var self = this;
+                var app = self.$app;
+                var $ = self.$;
+                
+                setTimeout(function() {
+                    self.$setState({ loading: false });
+                }, 600);
+            }
+        },
+        on:{
+            pageInit:function(e,page){
+            this.halAwal()
+            },
+        }
+
+}
+</script>

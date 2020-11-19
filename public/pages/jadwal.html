@@ -1,0 +1,503 @@
+<template>
+<div class="page page-homepage light" data-name="homepage">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link icon-only panel-open" data-panel="left">
+                    <span class="new-notification"></span>
+                    <i class="icon material-icons">menu</i>
+                </a>
+            </div>
+            <div class="title"><img src="img/logo-header.png" alt="" class="header-logo"> </div>
+            <div class="right">
+                <a href="/noticationslist/" class="link icon-only">
+                    <i class="material-icons">notifications_none</i><span class="counts">9+</span>
+                </a>
+                <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-components">
+                    <i class="icon material-icons">search</i>
+                </a>
+            </div>
+            <link rel="stylesheet" href="">
+            <form data-search-container=".components-list" data-search-in="a" class="searchbar searchbar-expandable searchbar-components searchbar-init">
+                <div class="searchbar-inner">
+                    <div class="searchbar-input-wrap">
+                        <input type="search" placeholder="Search components" />
+                        <i class="searchbar-icon"></i>
+                        <span class="input-clear-button"></span>
+                    </div>
+                    <span class="searchbar-disable-button if-not-aurora"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="navbar">
+                 <div class="subnavbar-inner">
+                    <a class="button tab-link tab-link-active" href="#tab1">Senin</a>
+                    <a class="button tab-link" href="#tab2">Selasa</a>
+                    <a class="button tab-link" href="#tab3">Rabu</a>
+                    <a class="button tab-link" href="#tab4">Kamis</a>
+                    <a class="button tab-link" href="#tab5">Jumat</a>
+                </div>
+           </div>
+            <div class="tabs">
+              <div class="tab tab-active" id="tab1">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="15%">
+                            <span class="table-head-label">Jam</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Waktu</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Mata Pelajaran</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>7.00-7.45</td>
+                          <td>Bahasa Indonesia</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>7.45-9.15</td>
+                          <td>Bahasa Indonesia</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9.15-9.50</td>
+                          <td>Matematika</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>10.35-11.15</td>
+                          <td>Matematika</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>12.00-12.45</td>
+                          <td>PKN</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab" id="tab2">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="15%">
+                            <span class="table-head-label">Jam</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Waktu</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Mata Pelajaran</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>7.00-7.45</td>
+                          <td>Bahasa Inggris</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>7.45-9.15</td>
+                          <td>Bahasa Inggris</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9.15-9.50</td>
+                          <td>Produktif RPL</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>10.35-11.15</td>
+                          <td>Produktif RPL</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>12.00-12.45</td>
+                          <td>Pendidikan Jasmani dan Kesehatan</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab" id="tab3">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="15%">
+                            <span class="table-head-label">Jam</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Waktu</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Mata Pelajaran</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>7.00-7.45</td>
+                          <td>Bahasa Jawa</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>7.45-9.15</td>
+                          <td>Bahasa Jawa</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9.15-9.50</td>
+                          <td>Pendidikan Agama Islam</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>10.35-11.15</td>
+                          <td>Pendidikan Agama Islam</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>12.00-12.45</td>
+                          <td>Pendidikan Agama Islam</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab" id="tab4">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="15%">
+                            <span class="table-head-label">Jam</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Waktu</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Mata Pelajaran</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>7.00-7.45</td>
+                          <td>Bahasa Inggris</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>7.45-9.15</td>
+                          <td>Bahasa Inggris</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9.15-9.50</td>
+                          <td>Produktif RPL</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>10.35-11.15</td>
+                          <td>Produktif RPL</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>12.00-12.45</td>
+                          <td>Pendidikan Jasmani dan Kesehatan</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab" id="tab5">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="15%">
+                            <span class="table-head-label">Jam</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Waktu</span>
+                          </th>
+                          <th width="42.5%">
+                            <span class="table-head-label">Mata Pelajaran</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>7.00-7.45</td>
+                          <td>Bahasa Jawa</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>7.45-9.15</td>
+                          <td>Bahasa Jawa</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9.15-9.50</td>
+                          <td>Pendidikan Agama Islam</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>10.35-11.15</td>
+                          <td>Pendidikan Agama Islam</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>12.00-12.45</td>
+                          <td>Pendidikan Agama Islam</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+                <div id="calendar" class="block block-strong no-padding no-margin no-hairline-top"></div>
+                <div id="calendar-events" class="list no-margin no-hairlines no-safe-area-left">
+                  <ul>
+                    {{#each eventItems}}
+                      <li class="item-content">
+                        <div class="event-color" style="background-color: {{color}}"></div>
+                        <div class="item-inner">
+                          <div class="item-title">{{title}}</div>
+                          <div class="item-after">{{time}}</div>
+                        </div>
+                      </li>
+                    {{else}}
+                      <li class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title text-color-gray">No events for this day</div>
+                        </div>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </div>
+                <h6 class="block-title"> Hari ini <a class="float-right small">01 September 2020</a></h6>
+                <div class="container">
+                    <div class="card mb-4 shadow pt-0">
+                        <div class="card-content card-content-padding border-bottom">
+                            <a href="/detail_jadwal_siswa/">
+                                <div class="row">
+                                    <div class="col-30 text-align-center">
+                                        <p>8.00<br><small class="text-mute text-secondary">8.45</small></p>
+                                    </div>
+                                    <div class="col-70 text-align-left">
+                                        <p>Matematika<br><small class="text-mute text-secondary">Ruang 3</small></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-content card-content-padding border-bottom">
+                            <div class="row">
+                                <div class="col-30 text-align-center">
+                                    <p>8.45<br><small class="text-mute text-secondary">9.30</small></p>
+                                </div>
+                                <div class="col-70 text-align-left">
+                                    <p>Bahasa Inggris<br><small class="text-mute text-secondary">Ruang 5</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content card-content-padding border-bottom">
+                            <div class="row">
+                                <div class="col-30 text-align-center">
+                                    <p>10.15<br><small class="text-mute text-secondary">11.00</small></p>
+                                </div>
+                                <div class="col-70 text-align-left">
+                                    <p>Pendidikan Agama Islam<br><small class="text-mute text-secondary">Ruang 1</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content card-content-padding border-bottom">
+                            <div class="row">
+                                <div class="col-30 text-align-center">
+                                    <p>11.00<br><small class="text-mute text-secondary">11.45</small></p>
+                                </div>
+                                <div class="col-70 text-align-left">
+                                    <p>Programming<br><small class="text-mute text-secondary">Ruang 5</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+</template>
+
+<style>
+  #calendar, #calendar-events {
+    height: 50%;
+    box-sizing: border-box;
+  }
+  #calendar .calendar {
+    height: 100%;
+  }
+  #calendar-events ul {
+    height: 100%;
+    overflow: auto;
+  }
+  #calendar-events .event-color {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+  }
+  @media (orientation: landscape) {
+    #calendar {
+      float: left;
+    }
+    #calendar, #calendar-events {
+      height: 100%;
+    }
+    #calendar, #calendar-events {
+      width: 50%;
+    }
+    #calendar-events {
+      margin-left: 50% !important;
+      border-left: 1px solid #eee;
+    }
+    .theme-dark #calendar-events {
+      border-left-color: #282828;
+    }
+  }
+</style>
+<script>
+  return {
+    data: function () {
+     
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var day = date.getDate();
+      var hari = date.getDay();
+      var mydays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat','Sabtu'];
+      thisDay = mydays[hari];
+      return {
+        eventItems: [],
+        today: new Date(year, month, day, thisDay),
+        events: [
+          {
+            date: new Date(year, month, day),
+            hours: 12,
+            minutes: 30,
+            today:thisDay,
+            title:'Programming',
+            color: '#2196f3',
+          },
+          {
+            date: new Date(year, month, day),
+            hours: 18,
+            minutes: 0,
+            title: 'Shopping',
+            color: '#4caf50',
+          },
+          {
+            date: new Date(year, month, day),
+            hours: 21,
+            minutes: 0,
+            title: 'Gym',
+            color: '#e91e63',
+          },
+          {
+            date: new Date(year, month, day + 2),
+            hours: 16,
+            minutes: 0,
+            title: 'Pay loan',
+            color: '#2196f3',
+          },
+          {
+            date: new Date(year, month, day + 2),
+            hours: 21,
+            minutes: 0,
+            title: 'Gym',
+            color: '#ff9800',
+          },
+        ],
+      }
+    },
+    methods: {
+      renderEvents: function (calendar) {
+        var self = this;
+        var currentDate = calendar.value[0];
+        var currentEvents = self.events
+          .filter(function (event) {
+            return (
+              event.date.getTime() >= currentDate.getTime() &&
+              event.date.getTime() < currentDate.getTime() + 24 * 60 * 60 * 1000
+            );
+          });
+
+        const eventItems = [];
+        if (currentEvents.length) {
+          currentEvents.forEach(function (event) {
+            const hours = event.hours;
+            let minutes = event.minutes;
+            if (minutes < 10) minutes = `0${minutes}`;
+            eventItems.push({
+              title: event.title,
+              time: `${hours}:${minutes}`,
+              color: event.color,
+            });
+          });
+        }
+        self.$setState({
+          eventItems: eventItems,
+        });
+      },
+    },
+    on: {
+      pageInit: function (e, page) {
+        var self = this;
+        var app = self.$app;
+        var $ = self.$;
+        var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+        self.calendar = app.calendar.create({
+          containerEl: '#calendar',
+          toolbar: false,
+          value: [self.today],
+          events: self.events,
+          on: {
+            init: function (calendar) {
+              $('.navbar-calendar-title').text(monthNames[calendar.currentMonth] +', ' + calendar.currentYear);
+              app.navbar.size(app.navbar.getElByPage(page.el));
+              calendar.$el.addClass('no-safe-area-right');
+              self.renderEvents(calendar);
+            },
+            monthYearChangeStart: function (calendar) {
+              $('.navbar-calendar-title').text(monthNames[calendar.currentMonth] +', ' + calendar.currentYear);
+              app.navbar.size(app.navbar.getElByPage(page.el));
+            },
+            change: function (calendar) {
+              self.renderEvents(calendar);
+            },
+          }
+        });
+      },
+      pageBeforeRemove() {
+        var self = this;
+        self.calendar.destroy();
+      },
+    },
+  }
+</script>
+

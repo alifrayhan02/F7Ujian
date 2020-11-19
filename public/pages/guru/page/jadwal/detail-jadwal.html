@@ -1,0 +1,150 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="if-not-md">Back</span>
+                </a>
+            </div>
+            <div class="title" style="margin-left: -10px;">Detail Jadwal</div>
+            </div>
+        </div>
+        <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:pullstart="start" @ptr:refresh="ptr">
+            <div class="ptr-preloader" id="ptr2" style="display: none;">
+                <div class="preloader"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+        <div class="block mt-0">
+            <b><h1 class="text-align-center mb-5">Matematika</h1></b>
+            <div class="card mb-4 shadow">
+                <div class="card-content card-content-padding">
+                    <div class="list media-list">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <div class="avatar avatar-50 border-0">
+                                        <i class="material-icons text-template">today</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                    <div class="item-title">Hari</div>
+                                </div>
+                                    <div class="item-subtitle">Senin</div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <div class="avatar avatar-50 border-0">
+                                        <div class="overlay"></div>
+                                        <i class="material-icons text-template">access_alarm</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">Jam</div>
+                                </div>
+                                <div class="item-subtitle">07:00 - 08:00</div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <div class="avatar avatar-50 border-0">
+                                        <div class="overlay"></div>
+                                        <i class="material-icons text-template">account_balance</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">Sekolah</div>
+                                </div>
+                                <div class="item-subtitle">SMK Telkom Malang</div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <div class="avatar avatar-50 border-0">
+                                        <div class="overlay"></div>
+                                        <i class="material-icons text-template">class</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">Kelas</div>
+                                </div>
+                                <div class="item-subtitle">XII RPL 5</div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <div class="avatar avatar-50 border-0">
+                                        <div class="overlay"></div>
+                                        <i class="material-icons text-template">location_on</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">Ruangan</div>
+                                </div>
+                                <div class="item-subtitle">Ruang 12</div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <div class="avatar avatar-50 border-0">
+                                        <div class="overlay"></div>
+                                        <i class="material-icons text-template">school</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title">Guru</div>
+                                </div>
+                                <div class="item-subtitle">Sutejo</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+<style>
+    .card{
+        border-radius: 20px;
+    }
+</style>
+<script>
+    return{
+        
+        methods: {
+            start:function(){
+                $("#ptr2").show();
+            },
+            ptr: function (e, done) {
+                    var self = this;
+                    var $ = self.$$;
+                    self.$setState({    
+                        loading:true
+                    });
+                    setTimeout(function() {
+                    self.$setState({ loading: false });
+                    $("#ptr2").hide();
+                    }, 1000);// refresh done
+                    
+                    setTimeout(function () {
+                        self.$setState({
+                            items: self.items,
+                        });
+                    // Done
+                    done();
+                    }, 600);
+            },
+        }
+    }
+</script>
+

@@ -1,0 +1,67 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+            <a href="#" class="back">
+                <i class="icon icon-back mr-3 ml-3"></i>
+                <span class="if-not-md">Back</span>
+            </a>
+            </div>
+            <div class="title" style="margin-left: -10px;">Pusat Bantuan</div>
+            <div class="right">
+            
+            </div>
+        </div>
+    </div>
+    <div class="page-content infinite-scroll-content ptr-content" data-ptr-mousewheel="false" @ptr:pullstart="start" @ptr:refresh="ptr">
+        <div class="ptr-preloader" id="ptr99" style="display: none;">
+        <div class="preloader"></div>
+        <div class="ptr-arrow"></div>
+        </div>
+    </div>
+</template>
+<script>
+    return{
+        on: {
+            pageInit:function(e,page)
+            {
+                this.halAwal();
+            },
+        },
+        methods: {
+            halAwal: function(){
+                var self = this;
+                var app = self.$app;
+                var $ = self.$;
+
+                setTimeout(function() {
+                self.$setState({ loading: false });
+            }, 3000);
+            },
+            start:function(){
+                $("#ptr99").show();
+            },
+            ptr: function (e, done) {
+                var self = this;
+                var $ = self.$$;
+                self.$setState({    
+                    loading:true
+                });
+                setTimeout(function() {
+                self.$setState({ loading: false });
+                $("#ptr99").hide();
+                }, 1000);// refresh done
+                
+                setTimeout(function () {
+                    self.$setState({
+                        items: self.items,
+                    });
+                // Done
+                done();
+                }, 600);
+                this.halAwal;
+            },
+        },
+    }
+</script>

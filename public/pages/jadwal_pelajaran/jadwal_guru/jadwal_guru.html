@@ -1,0 +1,306 @@
+<template>
+    <div class="page light">
+      <div class="navbar no-shadow">
+        <div class="navbar-inner sliding">
+          <div class="navbar-bg"></div>
+          <div class="left">
+            <a href="#" class="link back">
+              <i class="icon icon-back"></i>
+              <span class="if-not-md">Back</span>
+            </a>
+          </div>
+          <div class="title ">Jadwal Guru</div>
+          <div class="right">
+            <a href="#" class="link popover-open" data-popover=".popover-menu">
+                <figure class="avatar avatar-30 "><img src="img/user2.png" alt=""></figure>
+            </a>
+            <a class="link icon-only searchbar-enable">
+                <i class="icon material-icons">more_vert</i>
+            </a>
+          </div>        
+        </div>
+      </div>
+      <div class="page-content">
+        <div id="calendar" class="block block-strong no-padding no-margin no-hairline-top"></div>
+        <div id="calendar-events" class="list no-margin no-hairlines no-safe-area-left">
+            <!-- <h6 class="ml-2 mt-3 text-mute">Rabu, 02 September 2020</h6> -->
+            <br>
+            
+          <ul>
+            {{#each eventItems}}
+            <a href="/detail_jadwal_siswa/">
+                <li class="item-content">
+                    <div class="event-color" style="background-color: {{color}}"></div>
+                    <div class="item-inner">
+                      <div class="item-title">{{title}}
+                          <br>
+                          <small class="text-mute text-secondary">{{room}}</small>
+                      </div>
+                      <div class="item-after">{{time}}</div>
+                    </div>
+                </li>
+            </a>
+            {{else}}
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title text-color-gray">No events for this day</div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="popover popover-menu">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list links-list">
+                <ul>
+                  <li>
+                    <div class="row align-items-center padding">
+                      <div class="col-auto pr-0">
+                          <div class="avatar avatar-40 no-shadow border-0">
+                              <img src="img/user1.png" alt="">
+                          </div>
+                      </div>
+                      <div class="col">
+                          <h6 class="font-weight-normal mb-1 mt-0">Shivani Dilux</h6>
+                          <small class="text-mute text-secondary mt-0 ">X TKJ 5 - Smk Telkom</small>
+                      </div>
+                  </div>
+                  </li>
+                  <li>
+                    <div class="row align-items-center padding">
+                      <div class="col-auto pr-0">
+                          <div class="avatar avatar-40 no-shadow border-0">
+                              <img src="img/user2.png" alt="">
+                          </div>
+                      </div>
+                      <div class="col">
+                          <h6 class="font-weight-normal mb-1 mt-0">Kembon</h6>
+                          <small class="text-mute text-secondary mt-0 ">X RPL 5 - Smk Telkom</small>
+                      </div>
+                  </div>
+                  </li>                  
+                  <li>
+                    <div class="row align-items-center padding">
+                      <div class="col-auto pr-0">
+                          <div class="avatar avatar-40 no-shadow border-0">
+                              <img src="img/user3.png" alt="">
+                          </div>
+                      </div>
+                      <div class="col">
+                          <h6 class="font-weight-normal mb-1 mt-0">Koko</h6>
+                          <small class="text-mute text-secondary mt-0 ">X RPL 5 - Smk Telkom</small>
+                      </div>
+                  </div>
+                  </li>
+                  <li>
+                    <div class="row align-items-center padding">
+                      <div class="col-auto pr-0">
+                          <div class="avatar avatar-40 no-shadow border-0">
+                            <i class="icon material-icons">person_add</i>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <h6 class="font-weight-normal mb-1 mt-0">Tambahkan Akun</h6>
+                      </div>
+                  </div>
+                  </li>
+                </ul>
+              </div>
+           </div>
+        </div>
+    </div>
+  </template>
+  <style>
+    #calendar, #calendar-events {
+      height: 50%;
+      box-sizing: border-box;
+    }
+    #calendar .calendar {
+      height: 100%;
+    }
+    #calendar-events ul {
+      height: 100%;
+      overflow: auto;
+    }
+    #calendar-events .event-color {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 8px;
+      height: 100%;
+    }
+    @media (orientation: landscape) {
+      #calendar {
+        float: left;
+      }
+      #calendar, #calendar-events {
+        height: 100%;
+      }
+      #calendar, #calendar-events {
+        width: 50%;
+      }
+      #calendar-events {
+        margin-left: 50% !important;
+        border-left: 1px solid #eee;
+      }
+      .theme-dark #calendar-events {
+        border-left-color: #282828;
+      }
+    }
+  </style>
+  <script>
+    return {
+      data: function () {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var day = date.getDate();
+        return {
+          eventItems: [],
+          today: new Date(year, month, day),
+          events: [
+            {
+              date: new Date(year, month, day),
+              hours: 8,
+              minutes: 30,
+              title: 'Matematika',
+              room: 'Ruang 5',
+              color: '#2196f3',
+            },
+            {
+              date: new Date(year, month, day),
+              hours: 9,
+              minutes: 0,
+              title: 'Ilmu Pengetahuan Sosial',
+              color: '#4caf50',
+              room: 'Ruang 1',
+
+            },
+            {
+              date: new Date(year, month, day),
+              hours: 10,
+              minutes: 0,
+              title: 'Programming',
+              color: '#e91e63',
+              room: 'Ruang 3',
+            },
+            {
+              date: new Date(year, month, day + 1),
+              hours: 8,
+              minutes: 0,
+              title: 'Bahasa Inggris',
+              color: 'red',
+              room: 'Ruang 8',
+            },
+            {
+              date: new Date(year, month, day + 1),
+              hours: 9,
+              minutes: 0,
+              title: 'Bahasa Jawa',
+              color: '#ff9800',
+              room: 'Ruang 1',
+            },
+            {
+              date: new Date(year, month, day + 2),
+              hours: 8,
+              minutes: 0,
+              title: 'Bahasa Indonesia',
+              color: 'purple',
+              room: 'Ruang 8',
+            },
+            {
+              date: new Date(year, month, day + 2),
+              hours: 9,
+              minutes: 0,
+              title: 'Ilmu Pengetahuan Alam',
+              color: 'black',
+              room: 'Ruang 1',
+            },
+          ],
+        }
+      },
+      methods: {
+        renderEvents: function (calendar) {
+          var self = this;
+          var currentDate = calendar.value[0];
+          var currentEvents = self.events
+            .filter(function (event) {
+              return (
+                event.date.getTime() >= currentDate.getTime() &&
+                event.date.getTime() < currentDate.getTime() + 24 * 60 * 60 * 1000
+              );
+            });
+  
+          const eventItems = [];
+          if (currentEvents.length) {
+            currentEvents.forEach(function (event) {
+              const hours = event.hours;
+              let minutes = event.minutes;
+              if (minutes < 10) minutes = `0${minutes}`;
+              eventItems.push({
+                title: event.title,
+                room:event.room,
+                time: `${hours}:${minutes}`,
+                color: event.color,
+              });
+            });
+          }
+          self.$setState({
+            eventItems: eventItems,
+          });
+        },
+      },
+      on: {
+      pageInit: function (e, page) {
+        var self = this;
+        var app = self.$app;
+        var $ = self.$;
+        var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+        self.calendarInline = app.calendar.create({
+          containerEl: '#calendar',
+          events: self.events,
+          value: [new Date()],
+          renderToolbar: function() {
+            return '<div class="toolbar calendar-custom-toolbar no-shadow">' +
+              '<div class="toolbar-inner">' +
+              '<div class="left">' +
+              '<a href="#" class="link icon-only"><i class="icon icon-back"></i></a>' +
+              '</div>' +
+              '<div class="center"></div>' +
+              '<div class="right">' +
+              '<a href="#" class="link icon-only"><i class="icon icon-forward"></i></a>' +
+              '</div>' +
+              '</div>' +
+              '</div>';
+          },
+          on: {
+            init: function(c) {
+              $('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+              $('.calendar-custom-toolbar .left .link').on('click', function() {
+                self.calendarInline.prevMonth();
+              });
+              $('.calendar-custom-toolbar .right .link').on('click', function() {
+                self.calendarInline.nextMonth();
+              });
+             
+            },
+            monthYearChangeStart: function(c) {
+              $('.calendar-custom-toolbar .center').text(monthNames[c.currentMonth] + ', ' + c.currentYear);
+            },
+            change: function (calendar) {
+              self.renderEvents(calendar);
+            }
+          }
+        });
+      },
+      pageBeforeRemove() {
+        var self = this;
+        self.calendar.destroy();
+      },
+    },
+    }
+  </script>
+  
+  

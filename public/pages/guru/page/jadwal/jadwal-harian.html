@@ -1,0 +1,1365 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title" style="margin-left: -10px;">Jadwal Harian</div>
+            </div>
+        </div>
+        <div class="toolbar tabbar toolbar-top">
+            <div class="toolbar-inner">
+                <a href="#tab-1" class="tab-link tab-link-active">Sen</a>
+                <a href="#tab-2" class="tab-link">Sel</a>
+                <a href="#tab-3" class="tab-link">Rab</a>
+                <a href="#tab-4" class="tab-link">Kam</a>
+                <a href="#tab-5" class="tab-link">Jum</a>
+                <a href="#tab-6" class="tab-link">Sab</a>
+                <a href="#tab-7" class="tab-link">Min</a>
+            </div>
+        </div>
+        {{#if loadinghari}}
+        <div class="tabs mt-0" @ptr:refresh="ptr" @ptr:pullstart="start2">
+            <div class="ptr-preloader" style="margin-top: -60px; margin-bottom: 20px;">
+                <div class="preloader" id="ptr2" style="display: none;"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+            <div id="tab-1" class="page-content tab tab-active">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-2" class="page-content tab">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-3" class="page-content tab">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-4" class="page-content tab">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-5" class="page-content tab">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-6" class="page-content tab">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-7" class="page-content tab">
+                <div class="block">
+                    <span class="badge skeleton-block" style="width: 90px; height: 20px;"></span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0 skeleton-block">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="row">
+                                                    <div class="col-75">
+                                                        <div class="block skeleton-block mb-1"
+                                                            style="width: 100px; height: 15px; border-radius: 5px;">
+                                                        </div>
+                                                        <div class="block skeleton-block"
+                                                            style="width: 150px; height: 18px; border-radius: 5px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-25 align-self-center">
+                                                        <div class="skeleton-block"
+                                                            style="border-radius: 5px; width: 30px; height: 15px;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="tabs mt-0" @ptr:refresh="ptr" @ptr:pullstart="start2">
+            <div class="ptr-preloader" style="margin-top: -60px; margin-bottom: 20px;">
+                <div class="preloader" id="ptr2" style="display: none;"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+            <div id="tab-1" class="page-content tab tab-active">
+                <div class="block">
+                    <span class="badge color-red">SMK Telkom Malang</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">1</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 4</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">07:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">2</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 5</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">08:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 8</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">09:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-2" class="page-content tab">
+                <div class="block">
+                    <span class="badge color-green">SMK Brantas</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">1</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII TKJ 6</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">07:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">2</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 1</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">08:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII TKJ 1</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">09:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-3" class="page-content tab tab-active">
+                <div class="block">
+                    <span class="badge color-red">SMK Telkom Malang</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">1</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 4</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">07:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">2</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 5</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">08:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 8</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">09:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-4" class="page-content tab">
+                <div class="block">
+                    <span class="badge color-green">SMK Brantas</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">1</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII TKJ 6</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">07:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">2</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 1</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">08:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII TKJ 1</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">09:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-5" class="page-content tab tab-active">
+                <div class="block">
+                    <span class="badge color-red">SMK Telkom Malang</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">1</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 4</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">07:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">2</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 5</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">08:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 8</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">09:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-6" class="page-content tab">
+                <div class="block">
+                    <span class="badge color-green">SMK Brantas</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">1</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII TKJ 6</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">07:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">2</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII RPL 1</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">08:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list sortable">
+                                <ul>
+                                    <li>
+                                        <a href="/jadwal/detail-jadwal/" class="item-link item-content no-chevron">
+                                            <div class="item-media">
+                                                <div class="avatar avatar-40 no-shadow border-0">
+                                                    <div class="">3</div>
+                                                </div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    <div class="item-header">XII TKJ 1</div>
+                                                    Matematika
+                                                </div>
+                                                <div class="item-after">09:00</div>
+                                            </div>
+                                        </a>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-7" class="page-content tab">
+                <div class="block">
+                    <br><br>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <div class="chip">
+                                <div class="chip-media bg-color-red">
+                                    <i class="icon f7-icons if-not-md">plus_circle</i>
+                                    <i class="icon material-icons md-only">clear</i>
+                                </div>
+                                <div class="chip-label">Tidak ada jadwal hari ini</div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    </div>
+</template>
+<style>
+
+</style>
+<script>
+    return {
+        data: function () {
+            return {
+                loadinghari: true,
+            }
+        },
+        methods: {
+            ptr: function (e, done) {
+                var self = this;
+                var $ = self.$$;
+                self.$setState({
+                    loadinghari: true
+                });
+                setTimeout(function () {
+                    self.$setState({
+                        loadinghari: false
+                    });
+                    $("#ptr2").hide();
+                }, 1000); // refresh done
+
+                setTimeout(function () {
+                    self.$setState({
+                        items: self.items,
+                    });
+                    // Done
+                    done();
+                }, 600);
+                this.Halaman;
+            },
+            start2: function () {
+                $("#ptr2").show();
+            },
+            halAwal: function () {
+                var self = this;
+                var app = self.$app;
+                var $ = self.$;
+                setTimeout(function () {
+                    self.$setState({
+                        loadinghari: false
+                    });
+                }, 600);
+            }
+        },
+        on: {
+            pageInit: function (e, page) {
+                this.halAwal()
+            },
+        }
+
+    }
+</script>

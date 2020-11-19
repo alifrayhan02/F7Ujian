@@ -1,0 +1,871 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a href="#" class="link back">
+                  <i class="icon icon-back"></i>
+                  <span class="if-not-md">Back</span>
+                </a>
+              </div>
+              <div class="title " style="margin-left: -10px;">Pengaturan</div>
+              <div class="right">
+                <a href="#" class="link popover-open" data-popover=".popover-menu">
+                    <figure class="avatar avatar-30 "><img src="img/user2.png" alt=""></figure>
+                </a>
+                <a class="ml-2 mr-2 popover-open" data-popover=".popover-menu-jadwal">
+                    <i class="icon material-icons">more_vert</i>
+                </a>
+              </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+        <div id="tab-1" class="page-content tab tab-active">
+            <div class="block">
+              <div class="card mb-4 shadow">
+                <div class="card-content card-content-padding">
+                    <form class="list no-hairlines-md" id="demo-form">
+                      <br>
+                        <ul>
+                          <li class="item-content item-input">
+                            <div class="item-media">
+                              <i class="material-icons text-template ml-2">date_range</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title"><a>Tahun Pelajaran</a></div>
+                              <div class="item-input-wrap">
+                                <input type="text" placeholder="Masukkan tahun pelajaran">
+                                <span class="input-clear-button"></span>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="item-content item-input">
+                            <div class="item-media">
+                              <i class="material-icons text-template ml-2">access_time</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title"><a>Jumlah jam pelajaran maks per hari</a></div>
+                              <input type="text" placeholder="Masukkan Jumlah Jam Pelajaran" readonly="readonly" id="demo-picker-device-jumlahJP"/>
+                            </div>
+                          </li>
+                          <li class="item-content item-input">
+                            <div class="item-media">
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-input-wrap">
+                                <a href="#" class="button button-fill popup-open button-round" data-popup=".lonceng-popup-swipe">Jam Ke- Berapa</a>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="item-link smart-select smart-select-init" data-open-in="popover">
+                              <select name="superhero" multiple>
+                                <option value="Senin">Senin</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
+                                <option value="Jumat">Jumat</option>
+                                <option value="Sabtu">Sabtu</option>
+                                <option value="Minggu">Minggu</option>
+                              </select>
+                              <div class="item-content">
+                                <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">date_range</i></figure></div>
+                                <div class="item-inner">
+                                  <div class="item-title">Hari</div>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="item-content item-input">
+                            <div class="item-media">
+                              <i class="material-icons text-template ml-2">weekend</i>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title"><a>Libur Mingguan</a></div>
+                              <div class="item-input-wrap input-dropdown-wrap">
+                                <select name="akhir_pekan" placeholder="Pilih libur mingguan">
+                                    <option value="sabtu_minggu">Sabtu - Minggu</option>
+                                    <option value="jumat_sabtu">Jumat - Sabtu</option>
+                                    <option value="kamis_jumat">Kamis - Jumat</option>
+                                </select>
+                              </div>
+                            </div>
+                          </li>
+                          <br>
+                        </ul>
+                    </form>
+            </div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col">
+            <a href="#tab-2" class="tab-link ml-3" style="width: 90%;">
+            <button class="col button button-large button-fill button-round">Simpan</button>
+            </a>
+          </div>
+        </div>
+    </div>
+        <div id="tab-2" class="page-content tab">
+          <h5 class="text-block text-align-center">Nama Mata Pelajaran</h5>
+            <div class="block">
+              <div class="card data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="label-cell">Nama</th>
+                    <th class="numeric-cell">Kode</th>
+                    <th class="numeric-cell">Jumlah</th>
+                    <th class="numeric-cell">Waktu kosong</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="label-cell">Matematika</td>
+                    <td class="numeric-cell">Mtk</td>
+                    <td class="numeric-cell">3</td>
+                    <td class="numeric-cell">0</td>
+                  </tr>
+                  <tr>
+                    <td class="label-cell">Ilmu Pengetahuan Sosial</td>
+                    <td class="numeric-cell">IPS</td>
+                    <td class="numeric-cell">3</td>
+                    <td class="numeric-cell">0</td>
+                  </tr>
+                  <tr>
+                    <td class="label-cell">Bahasa Indoneisa</td>
+                    <td class="numeric-cell">B. Ind</td>
+                    <td class="numeric-cell">3</td>
+                    <td class="numeric-cell">0</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+            <div class="block">
+              <div class="row">
+                <div class="col">
+                  <a href="#" class="popup-open" data-popup=".demo-popup-swipe-tambah">
+                  <button class="button button-small button-round button-fill">                      
+                  Tambah</button>
+                  </a>
+                </div>
+                <div class="col">
+                  <button class="button button-small button-round button-fill">Edit</button>
+                </div>                
+                <div class="col">
+                  <button class="button button-small button-round button-fill">Hapus</button>
+                </div>              
+              </div>
+            </div>
+            <div class="block">
+              <div class="row text-align-center">
+                <div class="col"></div>
+               
+                <a href="#" class="popup-open" data-popup=".demo-popup-swipe-ubah">
+                  <div class="avatar avatar-50 no-shadow border-0 link">
+                      <div class="overlay bg-template"></div>
+                      <i class="material-icons text-template">edit</i>
+                  </div>
+                  <p class="small mt-2">Ubah</p>
+                </a>
+                <a href="" class="ml-2">
+                  <div class="avatar avatar-50 no-shadow border-0 link">
+                      <div class="overlay bg-template"></div>
+                      <i class="material-icons text-template">delete</i>
+                  </div>
+                  <p class="small mt-2">Hapus</p>
+                </a>
+                <div class="col"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a href="#tab-1" class="tab-link ml-3" style="width: 90%;">
+                <button class="col button button-large button-outline button-round">Sebelumnya</button>
+                </a>
+              </div>
+              <div class="col">
+                <a href="#tab-3" class="tab-link" style="width: 90%;">
+                <button class="col button button-large button-fill button-round">Selanjutnya</button>
+                </a>
+              </div>
+            </div>
+        </div>
+        <div id="tab-3" class="page-content tab">
+          <h5 class="text-block text-align-center">Masukkan Nama Kelas</h5>
+          <div class="row">
+            <div class="col-40">
+                <a href="#tab-2" class="tab-link ml-2">
+                    <button class="col button button-raised button-fill">Sebelumnya</button>
+                </a>
+            </div>
+            <div class="col-20">
+                
+            </div>
+            <div class="col-40 mr-3">
+                <a href="#tab-4" class="tab-link mr-0">
+                    <button class="col button button-raised button-fill">Selanjutnya</button>
+                </a>
+            </div>
+        </div>
+      </div>
+      <div id="tab-4" class="page-content tab">
+        <h5 class="text-block text-align-center">Masukkan Nama Ruangan</h5>
+        <div class="row">
+          <div class="col-40">
+              <a href="#tab-3" class="tab-link ml-2">
+                  <button class="col button button-raised button-fill">Sebelumnya</button>
+              </a>
+          </div>
+          <div class="col-20">
+              
+          </div>
+          <div class="col-40 mr-3">
+              <a href="#tab-5" class="tab-link mr-0">
+                  <button class="col button button-raised button-fill button-round">Selanjutnya</button>
+              </a>
+          </div>
+      </div>
+    </div>
+      </div>
+          <div class="popup lonceng-popup-swipe">
+            <div class="page light">
+              <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                  <div class="title">Jam Ke- Berapa</div>
+                  <div class="right"><a href="#" class="link popup-close">Close</a></div>
+                </div>
+              </div>
+              <div class="page-content">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="input-cell">
+                            <span class="table-head-label">Kode</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label">Mulai</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label">Akhiri</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label">Lamanya</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label">Beli</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label"></span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>8.00</td>
+                          <td>8.45</td>
+                          <td>45</td>
+                          <td>Seluruh Kelas</td>
+                          <td> 
+                              <button class="col button button-small button-outline">Hapus</button>
+                              <button class="col button button-small button-fill">Edit</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>8.45</td>
+                            <td>9.30</td>
+                            <td>45</td>
+                            <td>Yes</td>
+                            <td>Seluruh Kelas</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9.30</td>
+                          <td>10.15</td>
+                          <td>45</td>
+                          <td>Yes</td>
+                          <td>Seluruh Kelas</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>10.15</td>
+                          <td>11.00</td>
+                          <td>45</td>
+                          <td>Yes</td>
+                          <td>Seluruh Kelas</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>11.00</td>
+                          <td>12.45</td>
+                          <td>45</td>
+                          <td>Yes</td>
+                          <td>Seluruh Kelas</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <a href="#" class="button button-fill popup-open" data-popup=".istirahat-popup-swipe-handler">
+                    <button class="col button button-fill">Tambah Istirahat</button>
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="popup hari-popup-swipe">
+            <div class="page light">
+              <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                  <div class="title">Nama Hari</div>
+                  <div class="right"><a href="#" class="link popup-close">Close</a></div>
+                </div>
+              </div>
+              <div class="page-content">
+                <div class="card data-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="input-cell">
+                            <span class="table-head-label">Nama</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label">Kode</span>
+                          </th>
+                          <th class="input-cell">
+                            <span class="table-head-label">Deskripsi</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Senin</td>
+                          <td>Sen</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Selasa</td>
+                          <td>Sel</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Rabu</td>
+                          <td>Rab</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Kamis</td>
+                          <td>Kam</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Jumat</td>
+                          <td>Jum</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Sabtu</td>
+                          <td>Sab</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="popover popover-menu">
+            <div class="popover-angle"></div>
+            <div class="popover-inner">
+                <div class="list links-list">
+                    <ul>
+                      <li>
+                        <div class="row align-items-center padding">
+                          <div class="col-auto pr-0">
+                              <div class="avatar avatar-40 no-shadow border-0">
+                                  <img src="img/user1.png" alt="">
+                              </div>
+                          </div>
+                          <div class="col">
+                              <h6 class="font-weight-normal mb-1 mt-0">Shivani Dilux</h6>
+                              <small class="text-mute text-secondary mt-0 ">X TKJ 5 - Smk Telkom</small>
+                          </div>
+                      </div>
+                      </li>
+                      <li>
+                        <div class="row align-items-center padding">
+                          <div class="col-auto pr-0">
+                              <div class="avatar avatar-40 no-shadow border-0">
+                                  <img src="img/user2.png" alt="">
+                              </div>
+                          </div>
+                          <div class="col">
+                              <h6 class="font-weight-normal mb-1 mt-0">Kembon</h6>
+                              <small class="text-mute text-secondary mt-0 ">X RPL 5 - Smk Telkom</small>
+                          </div>
+                      </div>
+                      </li>                  
+                      <li>
+                        <div class="row align-items-center padding">
+                          <div class="col-auto pr-0">
+                              <div class="avatar avatar-40 no-shadow border-0">
+                                  <img src="img/user3.png" alt="">
+                              </div>
+                          </div>
+                          <div class="col">
+                              <h6 class="font-weight-normal mb-1 mt-0">Koko</h6>
+                              <small class="text-mute text-secondary mt-0 ">X RPL 5 - Smk Telkom</small>
+                          </div>
+                      </div>
+                      </li>
+                      <li>
+                        <div class="row align-items-center padding">
+                          <div class="col-auto pr-0">
+                              <div class="avatar avatar-40 no-shadow border-0">
+                                <i class="icon material-icons">person_add</i>
+                              </div>
+                          </div>
+                          <div class="col">
+                              <h6 class="font-weight-normal mb-1 mt-0">Tambahkan Akun</h6>
+                          </div>
+                      </div>
+                      </li>
+                    </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="popover popover-menu-jadwal">
+              <div class="popover-angle"></div>
+              <div class="popover-inner">
+                  <div class="list links-list">
+                      <ul>
+                        <a href="/kelas/">
+                        <li>
+                          <div class="row align-items-center padding">
+                            <div class="col-auto pr-0">
+                                <div class="avatar avatar-40 no-shadow border-0">
+                                  <i class="icon material-icons">school</i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0">Guru</h6>
+                            </div>
+                        </div>
+                        </li>
+                        </a>
+                        <a href="/kelas/">
+                        <li>
+                          <div class="row align-items-center padding">
+                            <div class="col-auto pr-0">
+                                <div class="avatar avatar-40 no-shadow border-0">
+                                  <i class="icon material-icons">class</i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0">Kelas</h6>
+                            </div>
+                        </div>
+                        </li>
+                      </a>
+                      <a href="/kelas/">
+                        <li>
+                          <div class="row align-items-center padding">
+                            <div class="col-auto pr-0">
+                                <div class="avatar avatar-40 no-shadow border-0">
+                                  <i class="icon material-icons">library_books</i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0">Mata Pelajaran</h6>
+                            </div>
+                        </div>
+                        </li>     
+                        </a>
+                        <a href="/kelas/">  
+                        <li>
+                          <div class="row align-items-center padding">
+                            <div class="col-auto pr-0">
+                                <div class="avatar avatar-40 no-shadow border-0">
+                                  <i class="icon material-icons">account_balance</i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0">Ruangan</h6>
+                            </div>
+                        </div>
+                        </li>
+                        </a>
+                        <a href="/langkah/">
+                        <li>
+                          <div class="row align-items-center padding">
+                            <div class="col-auto pr-0">
+                                <div class="avatar avatar-40 no-shadow border-0">
+                                  <i class="icon material-icons">settings</i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0">Pengaturan</h6>
+                            </div>
+                        </div>
+                        </li>
+                        </a>
+                      </ul>
+                    </div>
+                 </div>
+              </div>
+          <div class="popup istirahat-popup-swipe-handler">
+            <div class="page light">
+              <div class="swipe-handler"></div>
+              <div class="page-content">
+                <div class="block-title block-title-large">Tambah <br> Istirahat!</div>
+                <div class="block">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Name</div>
+                        <div class="item-input-wrap">
+                          <input name="nama_istirahat" type="text" style="background-color: white; width: 100%;">
+                        </div>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Kode</div>
+                        <div class="item-input-wrap">
+                          <input name="kode_istirahat" type="text" style="background-color: white; width: 100%;">
+                        </div>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Posisi Istirahat</div>
+                        <div class="item-input-wrap input-dropdown-wrap">
+                          <select name="posisi_istirahat">
+                            <option value="sebelum_ke1">Sebelum jam ke-1</option>
+                            <option value="sebelum_ke2">Sebelum jam ke-2</option>
+                            <option value="sebelum_ke3">Sebelum jam ke-3</option>
+                            <option value="sebelum_ke4">Sebelum jam ke-4</option>
+                            <option value="sebelum_ke5">Sebelum jam ke-5</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title item-label">Mulai</div>
+                          <div class="row">
+                            <div class="col">
+                              <div class="item-input-wrap input-dropdown-wrap">
+                              <select name="gender">
+                                <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                              </select>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="item-input-wrap input-dropdown-wrap">
+                                <select name="gender">
+                                  <option value="0">0</option>
+                                  <option value="5">5</option>
+                                  <option value="10">10</option>
+                                  <option value="15">15</option>
+                                  <option value="20">20</option>
+                                  <option value="25">25</option>
+                                  <option value="30">30</option>
+                                  <option value="35">35</option>
+                                  <option value="40">40</option>
+                                  <option value="45">45</option>
+                                  <option value="50">50</option>
+                                </select>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title item-label">Akhir</div>
+                            <div class="row">
+                              <div class="col">
+                                <div class="item-input-wrap input-dropdown-wrap">
+                                <select name="gender">
+                                  <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="item-input-wrap input-dropdown-wrap">
+                                  <select name="gender">
+                                    <option value="0">0</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                  </select>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+            <div class="popup demo-popup-swipe-tambah">
+              <div class="page light">
+                <div class="navbar">
+                  <div class="navbar-bg"></div>
+                  <div class="navbar-inner">
+                    <div class="title">Tambah Mata Pelajaran</div>
+                    <div class="right"><a href="#" class="link popup-close">Close</a></div>
+                  </div>
+                </div>
+                <div class="page-content">
+                  <div class="block">
+                    <div class="card mb-4 shadow">
+                      <div class="card-content card-content-padding border-bottom">
+                        <div class="block">
+                          <form class="list form-store-data" id="demo-form">
+                            <br>
+                              <ul>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Judul Mata Pelajaran</div>
+                                    <div class="item-input-wrap">
+                                      <input name="mata_pelajaran" type="text" placeholder="Masukkan nama mata pelajaran">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Kode</div>
+                                    <div class="item-input-wrap">
+                                      <input name="mata_pelajaran" type="text" placeholder="Masukkan kode mata pelajaran">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Jumlah</div>
+                                    <div class="item-input-wrap">
+                                      <input name="mata_pelajaran" type="text" placeholder="Masukkan jumlah mata pelajaran">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                          </form>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="popup demo-popup-swipe-ubah">
+              <div class="page light">
+                <div class="navbar">
+                  <div class="navbar-bg"></div>
+                  <div class="navbar-inner">
+                    <div class="title">Ubah Mata Pelajaran</div>
+                    <div class="right"><a href="#" class="link popup-close">Close</a></div>
+                  </div>
+                </div>
+                <div class="page-content">
+                  <div class="block">
+                    <div class="card mb-4 shadow">
+                      <div class="card-content card-content-padding border-bottom">
+                        <div class="block">
+                          <form class="list form-store-data" id="demo-form">
+                            <br>
+                              <ul>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Judul Mata Pelajaran</div>
+                                    <div class="item-input-wrap">
+                                      <input name="mata_pelajaran" type="text" placeholder="Masukkan nama mata pelajaran">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Kode</div>
+                                    <div class="item-input-wrap">
+                                      <input name="mata_pelajaran" type="text" placeholder="Masukkan kode mata pelajaran">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="item-content item-input">
+                                  <div class="item-inner">
+                                    <div class="item-title item-label">Jumlah</div>
+                                    <div class="item-input-wrap">
+                                      <input name="mata_pelajaran" type="text" placeholder="Masukkan jumlah mata pelajaran">
+                                      <span class="input-clear-button"></span>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                          </form>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    </template>
+    
+    <script>
+        return {
+          methods: {
+            createPopup: function () {
+              var self = this;
+              // Create popup
+              if (!self.popup) {
+                self.popup = self.$app.popup.create({
+                  content: '\
+                    <div class="popup">\
+                      <div class="page light">\
+                        <div class="navbar">\
+                          <div class="navbar-bg"></div>\
+                          <div class="navbar-inner">\
+                            <div class="title">Dynamic Popup</div>\
+                            <div class="right"><a href="#" class="link popup-close">Close</a></div>\
+                          </div>\
+                        </div>\
+                        <div class="page-content">\
+                          <div class="block">\
+                            <p>This popup was created dynamically</p>\
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus mauris leo, eu bibendum neque congue non. Ut leo mauris, eleifend eu commodo a, egestas ac urna. Maecenas in lacus faucibus, viverra ipsum pulvinar, molestie arcu. Etiam lacinia venenatis dignissim. Suspendisse non nisl semper tellus malesuada suscipit eu et eros. Nulla eu enim quis quam elementum vulputate. Mauris ornare consequat nunc viverra pellentesque. Aenean semper eu massa sit amet aliquam. Integer et neque sed libero mollis elementum at vitae ligula. Vestibulum pharetra sed libero sed porttitor. Suspendisse a faucibus lectus.</p>\
+                          </div>\
+                        </div>\
+                      </div>\
+                    </div>\
+                  '
+                });
+              }
+              // Open it
+              self.popup.open();
+            },
+          },
+          on: {
+            pageBeforeRemove: function () {
+              var self = this;
+              // Destroy popup when page removed
+              if (self.popup) self.popup.destroy();
+              if (self.popupSwipe) self.popupSwipe.destroy();
+              if (self.popupSwipeHandler) self.popupSwipeHandler.destroy();
+              if (self.popupPush) self.popupPush.destroy();
+            },
+            pageInit: function () {
+              var self = this;
+              self.popupSwipe = self.$f7.popup.create({
+                el: '.demo-popup-swipe',
+                swipeToClose: true,
+              });
+              self.pickerDevice = app.picker.create({
+              inputEl: '#demo-picker-device-jumlahHari',
+              cols: [
+              {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7']
+              }
+              ]
+              });
+              self.pickerDevice = app.picker.create({
+              inputEl: '#demo-picker-device-jumlahJP',
+              cols: [
+              {
+                textAlign: 'center',
+                values: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19','20',
+                '21','22','23','25','26','27','28','29','30','31']
+              }
+              ]
+              });
+              self.pickerDescribe = app.picker.create({
+              inputEl: '#demo-picker-describe',
+              rotateEffect: true,
+              cols: [
+                {
+                  textAlign: 'left',
+                  values: ('Super Amazing Bat Iron Rocket Lex Beautiful Wonderful Raining Happy Funny Cool Hot').split(' ')
+                },
+                {
+                  values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ')
+                },
+              ]
+            });
+              self.popupSwipeHandler = self.$f7.popup.create({
+                el: '.istirahat-popup-swipe-handler',
+                swipeToClose: 'to-bottom',
+                swipeHandler: '.swipe-handler'
+              });
+              self.popupSwipe = self.$f7.popup.create({
+                el: '.demo-popup-swipe-tambah',
+                swipeToClose: true,
+              });
+              self.popupSwipe = self.$f7.popup.create({
+                el: '.demo-popup-swipe-ubah',
+                swipeToClose: true,
+              });
+              self.popupPush = self.$f7.popup.create({
+                el: '.demo-popup-push',
+                swipeToClose: true,
+                push: true,
+              });
+            },
+          }
+        }
+      </script>
+      
+    
+    

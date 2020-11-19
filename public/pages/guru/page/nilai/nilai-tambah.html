@@ -1,0 +1,664 @@
+<template>
+  <div class="page page-homepage light" data-name="homepage">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="back">
+            <i class="icon icon-back mr-3 ml-3"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title" style="margin-left: -10px;">Nilai</div>
+        <div class="right">
+          <a href="#" id="testinputNilai" class="accordion-item-toggle" style="margin-right: 15px;">
+            <i class="icon material-icons">tune</i>
+          </a>
+          <a href="/nila-tambah/" @click="showToastBottom" style="margin-right: -5px;">
+            <i class="icon material-icons">save</i>
+          </a>
+          <a class="ml-2 mr-2 popover-open" data-popover=".popover-menu-Tambahnilai">
+            <i class="icon material-icons">more_vert</i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr" @ptr:pullstart="start">
+      <div class="ptr-preloader" id="ptr3" style="display: none;">
+        <div class="preloader"></div>
+        <div class="ptr-arrow"></div>
+      </div>
+      <div class="accordion-item accorinput accordion-item-opened">
+        <div class="accordion-item-content">
+          <div class="list no-hairlines-md">
+            <div class="block mt-0">
+              <div class="card mb-2 mt-0">
+                <div class="card-content card-content-padding">
+                  <div class="list no-hairlines-md">
+                    <ul>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                          data-page-title="Pilih Sekolah" data-searchbar="true"
+                          data-searchbar-placeholder="Cari Sekolah">
+                          <select name="sekolah" @change="filterAktif">
+                            <option value="SMK Telkom Malang" selected>SMK Telkom Malang</option>
+                            <option value="SMK Brantas">SMK Brantas</option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">account_balance</i>
+                              </figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Sekolah</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                          data-page-title="Pilih Kelas" data-searchbar="true" data-searchbar-placeholder="Cari kelas">
+                          <select name="kelas" @change="filterAktif">
+                            <option value="XII RPL 1" selected>XII RPL 1 (0909) </option>
+                            <option value="XII RPL 2">XII RPL 2 (0908) </option>
+                            <option value="XII RPL 3">XII RPL 3 (0907) </option>
+                            <option value="XII RPL 4">XII RPL 4 (0906) </option>
+                            <option value="XII RPL 5">XII RPL 5 (0905) </option>
+                            <option value="XII RPL 6">XII RPL 6 (0904) </option>
+                            <option value="XII RPL 7">XII RPL 7 (0903) </option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">class</i></figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Kelas</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                          data-page-title="Pilih Mata Pelajaran" data-searchbar="true"
+                          data-searchbar-placeholder="Cari Mata Pelajaran">
+                          <select name="fruits">
+                            <option value="apple" selected>Matematika (1122) </option>
+                            <option value="pineapple">IPA (1143) </option>
+                            <option value="pear">Bahasa Indonesia (2233) </option>
+                            <option value="orange">Bahasa Inggris (3344) </option>
+                            <option value="melon">PAI (6655) </option>
+                            <option value="peach">IPS (1123) </option>
+                            <option value="banana">Produktif RPL (1212) </option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">library_books</i>
+                              </figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Mapel</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                          data-page-title="Pilih Kategori" data-searchbar="true"
+                          data-searchbar-placeholder="Cari Kategori Penilaian">
+                          <select name="kategori">
+                            <option value="UAS" selected>UAS</option>
+                            <option value="UTS">UTS</option>
+                            <option value="UH">UH</option>
+                            <option value="Tugas">Tugas</option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">view_module</i>
+                              </figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Kategori</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
+                          data-searchbar-placeholder="Cari dg kode atau nama">
+                          <select name="guru">
+                            <option value="Sutejo">Sutejo (1234)</option>
+                            <option value="Fiersa Besari">Fiersa Besari (4321)</option>
+                            <option value="Arief Muhammad">Arief Muhammad(9876)</option>
+                            <option value="Sukijah">Sukijah (6543)</option>
+                            <option value="Mangoleh">Mangoleh (5432)</option>
+                            <option value="Ade Londok">Ade Londok (0987)</option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="material-icons">school</i></figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Guru</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-content">
+                          <div class="item-media">
+                            <figure class="avatar avatar-30 no-shadow"><i class="material-icons">star_rate</i></figure>
+                          </div>
+                          <div class="item-inner">
+                            <div class="item-title">KKM</div>
+                            <div class="item-after">
+                              <div class="input">
+                                <input type="number" class="kkm"
+                                  style="width:30px; height: 20px; background-color: rgb(233, 231, 231);">
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="item-content item-input mb-0" style="height: 50px;">
+                        <div class="item-media">
+                          <figure class="avatar avatar-30 no-shadow"><a><i class="material-icons">today</i></a></figure>
+                        </div>
+                        <div class="item-inner border-bottom">
+                          <div class="absen-harian-toolbar no-shadow"
+                            style="background-color: transparent; z-index: 2;">
+
+                            <div class="toolbar-inner no-shadow" style="background-color: transparent;">
+                              <div class="left text-color-black output-cal" id="demo-calendar-tambahNilai"></div>
+                              <!-- <input style="width: 180px;" type="text" class="left text-color-black " placeholder="Your birth date"
+                                readonly="readonly" id="demo-calendar-laporanAbsensi" /> -->
+                              <div class="right">
+                                <a href="#" class="link icon-only mr-1 btn-left"><i
+                                    class="fas fa-arrow-left text-color-black" style="font-size: 15px;"></i></a>
+                                <a href="#" id="btn-kanan1" class="link icon-only mr-3 ml-1 btn-right"><i
+                                    class="fas fa-arrow-right " style="font-size: 15px;"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="data-table">
+        <table class="stripe row-border order-column" id="fixcolumn" style="width:100%">
+          <thead>
+            <tr>
+              <th class="nama label-cell">Nama</th>
+              <th class="nilai label-cell">Nilai</th>
+              <th class="keterangan label-cell"> Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#if loading1}}
+            <tr>
+              <td class="skeleton-text nama label-cell">Abimanyu Prakorso</td>
+              <td class="skeleton-text nilai label-cell">
+                qwer
+              </td>
+              <td class="skeleton-text keterangan label-cell">
+                qwertyuiop
+              </td>
+            </tr>
+            <tr>
+              <td class="skeleton-text nama label-cell">Abimanyu Prakorso</td>
+              <td class="skeleton-text nilai label-cell">
+                qwer
+              </td>
+              <td class="skeleton-text keterangan label-cell">
+                qwertyuiop
+              </td>
+            </tr>
+            <tr>
+              <td class="skeleton-text nama label-cell">Abimanyu Prakorso</td>
+              <td class="skeleton-text nilai label-cell">
+                qwer
+              </td>
+              <td class="skeleton-text keterangan label-cell">
+                qwertyuiop
+              </td>
+            </tr>
+            {{else}}
+            {{#nilaiSiswa}}
+            <tr>
+              <td class="nama label-cell sheet-open" data-sheet=".demo-sheet-swipe-to-close"><a>{{nama}}</a></td>
+              <td class="nilai label-cell">
+                <div class="input">
+                  <input type="number">
+                </div>
+              </td>
+              <td class="keterangan label-cell">
+                <div class="input">
+                  <textarea class="keterangan" type="text" id="keterangan"></textarea>
+                </div>
+              </td>
+            </tr>
+            {{/nilaiSiswa}}
+            {{/if}}
+          </tbody>
+        </table>
+        <br><br>
+      </div>
+    </div>
+    <div class="sheet-modal demo-sheet-swipe-to-close" style="max-height:90%; height: auto;">
+      <div class="sheet-modal-inner">
+        <div class="swipe-handler"></div>
+        <div class="page-content">
+          <div class="block text-align-center" style="background-color: cornsilk; padding: 10px;">
+            <h5 class="mb-3">Muhammad Rafly Amartharizqi</h5>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">person</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Nama Panggilan</div>
+                    <div class="item-after" id="hari">Rafly</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">wc</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Jenis Kelamin</div>
+                    <div class="item-after">Laki-laki</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">class</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Kelas</div>
+                    <div class="item-after">X RPL 1</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">home</i></div>
+                  <div class="item-inner input-wrap">
+                    <div class="item-title">Alamat</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Kecamatan</div>
+                    <div class="item-after">Sidoarjo</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Kelurahan</div>
+                    <div class="item-after">Bligo</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popover popover-menu-Tambahnilai">
+      <div class="popover-angle"></div>
+      <div class="popover-inner">
+          <div class="list">
+              <ul>
+                  <li><a href="/pusat-bantuan/" class="list-button popover-close">Bantuan</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  </div>
+</template>
+<style>
+  .smart-select-page .page-content .list .item-radio .item-inner {
+    margin-left: -18px;
+  }
+
+  .smart-select-page .page-content .list {
+    margin-top: 0px;
+  }
+
+  span.searchbar-disable-button::after {
+    margin-top: -20px;
+  }
+
+  th.nama {
+    padding-left: 15px;
+  }
+
+  td.nama {
+    min-width: 220px;
+    padding-right: 0px;
+    padding-left: 15px;
+  }
+
+  th.tuntas {
+    min-width: 80px;
+  }
+
+  td.input-cell {
+    background-color: lightgreen;
+  }
+
+  th.numeric-cell {
+    padding-right: 0px;
+    width: 60px;
+  }
+
+  td.numeric-cell {
+    padding-right: 0px;
+    width: 60px;
+  }
+
+  th.keterangan {
+    min-width: 10px;
+    padding-left: 10px;
+  }
+
+  td.keterangan {
+    min-width: 120px;
+    padding-right: 15px;
+    padding-left: 10px;
+  }
+
+  td.keterangan .input textarea {
+    background-color: rgb(233, 231, 231);
+  }
+
+  th.nilai {
+    width: 60px;
+    padding-right: 0px;
+  }
+
+  td.nilai {
+    width: 60px;
+    padding-right: 0px;
+    text-align: center;
+  }
+
+  td.nilai .input input {
+    background-color: rgb(233, 231, 231);
+    height: 31px;
+  }
+
+  td {
+    cursor: pointer;
+    margin: 15px 0;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgb(240, 240, 250);
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+</style>
+<script>
+  var dates = new Date();
+  var tahun = dates.getFullYear();
+  var bulan = dates.getMonth();
+  var tgl = dates.getDate();
+  var date = new Date(tahun, bulan, tgl);
+  var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sept', 'Okt',
+    'Nov', 'Des'
+  ];
+  monthNames1 = [
+    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+    'November', 'Desember'
+  ];
+  var pilihTgl = date.getDate();
+  var pilihBulan = date.getMonth();
+  var pilihTahun = date.getFullYear();
+  return {
+    data: function () {
+      return {
+        loading1: true,
+        nilaiSiswa: [
+          {
+            id: 1,
+            nama: 'Muhammad Rafly Amartharizqi',
+            keterangan: '',
+          },
+          {
+            id: 2,
+            nama: 'Abimanyu Prakoso',
+            keterangan: '',
+          },
+          {
+            id: 3,
+            nama: 'Sugeng Riyadin',
+            keterangan: '',
+          },
+          {
+            id: 4,
+            nama: 'Alif Rayhan',
+            keterangan: '',
+          },
+          {
+            id: 5,
+            nama: 'Tarik sis semongko',
+            keterangan: '',
+          },
+          {
+            id: 6,
+            nama: 'Suwano bin Sukemi',
+            keterangan: '',
+          },
+        ]
+      }
+    },
+    methods: {
+      start: function () {
+        $("#ptr3").show();
+      },
+      ptr: function (e, done) {
+        var self = this;
+        var $ = self.$$;
+        self.$setState({
+          loading1: true
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading1: false
+          });
+          $("#ptr3").hide();
+        }, 1000); // refresh done
+
+        setTimeout(function () {
+          self.$setState({
+            items: self.items,
+          });
+          // Done
+          done();
+        }, 600);
+        this.halaman();
+      },
+      filterAktif: function () {
+        var self = this;
+        self.$setState({
+          loading1: true
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading1: false
+          });
+        }, 1000);
+      },
+      halaman: function () {
+        var self = this;
+        var app = self.$app;
+        var $ = self.$;
+        var acc = true;
+        kunci = 9;
+
+        setTimeout(function () {
+          self.$setState({
+            loading1: false
+          });
+        }, 1000);
+
+        $('#testinputNilai').on('click', function () {
+          if (acc == true) {
+            acc = false;
+            app.accordion.close('.accorinput');
+          } else {
+            acc = true;
+            app.accordion.open('.accorinput');
+          };
+        });
+      },
+      renderEvents: function () {
+        var currentDate = date;
+        var self = this;
+        var sekarang1 = new Date();
+        self.$setState({
+          loading2: true
+        });
+        if (sekarang1.getDate() === pilihTgl && sekarang1.getMonth() === pilihBulan && sekarang1
+          .getFullYear() === pilihTahun) {
+          $('#btn-kanan1').addClass('text-color-gray disabled');
+          $('#btn-kanan1').removeClass('text-color-black');
+        } else if (pilihTgl >= sekarang1.getDate() && sekarang1.getMonth() === pilihBulan && sekarang1
+          .getFullYear() === pilihTahun) {
+          $('#btn-kanan1').addClass('text-color-gray disabled');
+          $('#btn-kanan1').removeClass('text-color-black');
+        } else {
+          $('#btn-kanan1').removeClass('text-color-gray disabled');
+          $('#btn-kanan1').addClass('text-color-black');
+        }
+        setTimeout(function () {
+          self.$setState({
+            loading2: false
+          });
+        }, 600);
+      },
+      showToastBottom: function () {
+        var self = this;
+        // Create toast
+        if (!self.toastBottom) {
+          self.toastBottom = self.$app.toast.create({
+            text: 'Nilai telah disimpan',
+            closeTimeout: 2000,
+          });
+        }
+        // Open it
+        self.toastBottom.open();
+      },
+
+    },
+    on: {
+      pageInit: function (e, page) {
+        var self = this;
+        var today = new Date();
+        var app = self.$app;
+        var $ = self.$;
+        self.renderEvents();
+        $('.absen-harian-toolbar .left').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun);
+        self.renderEvents();
+        $('.absen-harian-toolbar .right .btn-left').on('click', function () {
+          var t = date.setDate(pilihTgl - 1);
+          pilihTgl = date.getDate(t);
+          calendarDefault.setValue([new Date('' + pilihTahun + '/' + monthNames1[pilihBulan] + '/' + pilihTgl +
+            '')]);
+          $('.absen-harian-toolbar .left').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun);
+          self.renderEvents();
+        });
+        $('.absen-harian-toolbar .right .btn-right').on('click', function () {
+          var b = date.setDate(pilihTgl + 1);
+          pilihTgl = date.getDate(b);
+          calendarDefault.setValue([new Date('' + pilihTahun + '/' + monthNames[pilihBulan] + '/' + pilihTgl +
+            '')]);
+          $('.absen-harian-toolbar .left').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun);
+          self.renderEvents();
+        });
+
+        // Default
+        var calendarDefault = app.calendar.create({
+          inputEl: '#demo-calendar-tambahNilai',
+          dateFormat: 'd MM yyyy',
+          value: [Date(pilihTahun, pilihBulan, pilihTgl)],
+          disabled:{
+            from:today,
+          },
+          closeOnSelect: true,
+          monthNames: [
+            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+            'November', 'Desember'
+          ],
+          monthNamesShort: [
+            'Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogo', 'Sep', 'Okt', 'Nov', 'Dis'
+          ],
+          dayNames: [
+            'Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'
+          ],
+          dayNamesShort: [
+            'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
+          ],
+          on: {
+            dayClick(calendar, dayEl, year, month, day, monthNamesShort) {
+              pilihTgl = day;
+              pilihBulan = month;
+              pilihTahun = year;
+              $('.output-cal').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun)
+              self.$setState({
+                pilihTgl: day,
+                pilihBulan: month,
+                pilihTahun: year
+              });
+            },
+            monthYearChangeStart: function () {
+              $('.output-cal').text(pilihTgl + ' ' + monthNames[pilihBulan] + ' ' + pilihTahun)
+            }
+          },
+        });
+        self.sheetSwipeToClose = self.$app.sheet.create({
+          el: '.demo-sheet-swipe-to-close',
+          swipeToClose: true,
+          push: true,
+          backdrop: true,
+        });
+        this.halaman();
+
+        // Default
+        
+      },
+      pageBeforeOut: function () {
+        var self = this;
+        self.$app.toast.close();
+        self.$app.sheet.close();
+      },
+      pageBeforeRemove() {
+        var self = this;
+        self.calendarDefault.destroy();
+        if (self.toastBottom) self.toastBottom.destroy();
+        if (self.sheetSwipeToClose) self.sheetSwipeToClose.destroy();
+      },
+    },
+  }
+</script>

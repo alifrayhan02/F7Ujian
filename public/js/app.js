@@ -1,15 +1,17 @@
 // Dom7
 var $ = Dom7;
 
-
 // Theme
 var theme = 'auto';
 if (document.location.search.indexOf('theme=') >= 0) {
     theme = document.location.search.split('theme=')[1].split('&')[0];
 }
-
 // Init App
 var app = new Framework7({
+    dialog: {
+        buttonOk:'Ya',
+        buttonCancel:'Tidak',
+    },
     id: 'io.framework7.testapp',
     root: '#app',
     theme: 'md',
@@ -39,23 +41,46 @@ var app = new Framework7({
     actions: {
         closeOnEscape: true,
     },
-
     smartSelect: {
-        pageTitle: 'Select Option',
         openIn: 'popup',
+        popupCloseLinkText	:'Tutup',
+        closeOnSelect	:true,
+        popupSwipeToClose: true,
+        virtualList: false,
     },
     initOnDeviceReady:true,
-    view:{
-     pushState:true,
-
-    } 
+        view:{
+        pushState:true,
+    },
+    touch: {
+        mdTouchRipple:false,
+    }
 
 });
-
-setTimeout(function () {
-    $('.loader-screen').hide();
-}, 2000);
+app.views.main.router.navigate('/homepage/');
 //$('.introduction').css('min-height', 'calc(100vh - 58px)' )
+
+var notifikasiLinkSmartWarning = app.notification.create({
+    icon: '<i class="fas fa-exclamation-circle text-color-yellow"></i>',
+    title: '<p class="text-color-yellow">Absensi</p>',
+    titleRightText: 'Sekarang',
+    subtitle: 'Fulan ijin tidak masuk',
+    text: 'Jumat, 8 November 2020 Fulan ijin tidak masuk sekolah',
+    closeTimeout: 20000,
+    swipeToClose:true,
+    closeButton: true,
+    closeOnClick: true,
+    on: {
+      close: function () {
+        var toastBottom1 = app.toast.create({
+            text: 'Notifikasi ditutup',
+            closeTimeout: 3000,
+        });
+        toastBottom1.open();
+      },
+    },
+});
+
 
 $(document).on('page:init', function (e) {
     /* background image to cover */
@@ -78,16 +103,23 @@ $(document).on('page:init', function (e) {
             $('.navbar').removeClass('active')
         }
     });
-
-
 });
 
-$(document).on('page:init', '.page[data-name="thankyou"]', function (e) {
-    setTimeout(function () {
-        app.views.main.router.navigate('/homepage/');
-    }, 2000)
 
-});
+
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+
+
+$('#edit').on('click', function(e) {
+    document.getElementById("edit_hari").innerHTML += "<a>"+ "Susu" +"</a>";
+})
+
+
+
 $(document).on('page:init', '.page[data-name="homepage"]', function (e) {
 
     /* chart js */
@@ -168,8 +200,4 @@ $(document).on('page:init', '.page[data-name="homepage"]', function (e) {
             }
         }
     });
-
-
-
-
 });

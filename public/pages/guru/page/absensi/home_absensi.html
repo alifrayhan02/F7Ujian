@@ -1,0 +1,130 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+      <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="back">
+                  <i class="icon icon-back mr-3 ml-3"></i>
+                  <span class="if-not-md">Back</span>
+                </a>
+              </div>
+              <div class="title" style="margin-left: -10px;">Absensi</div>
+              <div class="right">
+                <a class="popover-open mr-2" data-popover=".popover-menu-bantuan" style="padding-left: 10px;">
+                    <i class="material-icons">more_vert</i>
+                </a>
+              </div>
+          </div>
+      </div>
+      <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr2" @ptr:pullstart="start2">
+        <div class="ptr-preloader" id="ptr2" style="display: none;">
+            <div class="preloader"></div>
+            <div class="ptr-arrow"></div>
+        </div>
+        <div class="list mt-0">
+            <ul>
+                <li>
+                    <a href="/input_absensi/" class="item-link item-content">
+                        <div class="item-media"><i class="material-icons ikon">add</i></div>
+                        <div class="item-inner">
+                            <div class="item-title">Input Absensi</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/laporan_absensi/" class="item-link item-content">
+                        <div class="item-media"><i class="material-icons ikon">assignment</i></div>
+                        <div class="item-inner">
+                            <div class="item-title">Laporan Absensi Harian</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/laporan_perbulan/" class="item-link item-content">
+                        <div class="item-media"><i class="material-icons ikon">date_range</i></div>
+                        <div class="item-inner">
+                            <div class="item-title">Laporan Absensi Bulanan</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/laporan_persiswa/" class="item-link item-content">
+                        <div class="item-media"><i class="material-icons ikon">supervisor_account</i></div>
+                        <div class="item-inner">
+                            <div class="item-title">Laporan Absensi Siswa</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="popover popover-menu-bantuan">
+        <div class="popover-angle"></div>
+        <div class="popover-inner">
+            <div class="list">
+                <ul>
+                    <li><a href="#" class="list-button popover-close">Bantuan</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+</div>
+</template>
+<script>
+        return {
+            methods: {
+                ptr2: function (e, done) {
+                    var self = this;
+                    var $ = self.$$;
+                    self.$setState({    
+                        loading:true
+                    });
+                    setTimeout(function() {
+                    self.$setState({ loading: false });
+                    $("#ptr2").hide();
+                    }, 1000);// refresh done
+                    
+                    setTimeout(function () {
+                        self.$setState({
+                            items: self.items,
+                        });
+                    // Done
+                    done();
+                    }, 600);
+                    this.Halaman;
+                },
+                start2:function(){
+                  $("#ptr2").show();
+                },
+                halAwal: function (){
+                    var self = this;
+                    var app = self.$app;
+                    var $ = self.$;
+                    
+                    setTimeout(function() {
+                        self.$setState({ loading: false });
+                    }, 600);
+                }
+            },
+            on:{
+                pageInit:function(e,page){
+                this.halAwal()
+                },
+            }
+    
+    }
+    </script>
+<style>
+    .home-card{
+        height: 200px;
+        
+    }
+    .home-icon{
+        font-size: 40px;
+    }
+    .ikon{
+        font-size: 35px;
+        margin-right: -90px;
+    }
+    
+</style>

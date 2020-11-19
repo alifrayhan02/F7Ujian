@@ -1,0 +1,619 @@
+<template>
+  <div class="page page-homepage light" data-name="homepage">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="back">
+            <i class="icon icon-back ml-3 mr-3"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title" style="margin-left: -10px;">Jadwal Ruangan</div>
+        <div class="right">
+          <a href="#" id="testruang" class="accordion-item-toggle" style="margin-right: -10px;">
+            <i class="icon material-icons">tune</i>
+          </a>
+          <a class="link popover-open" data-popover=".popover-menu-jadwal_pelajaran">
+            <i class="icon material-icons">more_vert</i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr" @ptr:pullstart="start">
+      <div class="ptr-preloader" id="ptr4" style="display: none;">
+        <div class="preloader"></div>
+        <div class="ptr-arrow"></div>
+      </div>      
+      <div class="accordion-item accorruang accordion-item-opened">
+        <div class="accordion-item-content">
+          <div class="list no-hairlines-md">
+            <div class="block mt-0">
+              <div class="card  mt-0 mb-2">
+                <div class="card-content card-content-padding">
+                  <div class="list no-hairlines-md">
+                    <ul>
+                      <li>
+                        <li>
+                          <a class="item-link smart-select smart-select-init" data-open-in="popup"
+                            data-page-title="Pilih Sekolah" data-searchbar="true"
+                            data-searchbar-placeholder="Cari Sekolah">
+                            <select name="sekolah" @change="filterAktif">
+                              <option value="SMK Telkom Malang" selected>SMK Telkom Malang</option>
+                              <option value="SMK Brantas">SMK Brantas</option>
+                            </select>
+                            <div class="item-content">
+                              <div class="item-media">
+                                <figure class="avatar avatar-30 no-shadow"><i class="material-icons">account_balance</i>
+                                </figure>
+                              </div>
+                              <div class="item-inner">
+                                <div class="item-title">Sekolah</div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
+                            data-searchbar-placeholder="Pilih Ruangan">
+                            <select name="Kelas" @change="filterAktif">
+                              <option value="1">Ruang 1</option>
+                              <option value="2">Ruang 2</option>
+                              <option value="3">Ruang 3</option>
+                              <option value="4">Ruang 4</option>
+                              <option value="5">Ruang 5</option>
+                              <option value="6">Ruang 6</option>
+                              <option value="7">Ruang 7</option>
+                              <option value="8">Ruang 8</option>
+                              <option value="9">Ruang 9</option>
+                              <option value="10">Ruang 10</option>
+                            </select>
+                            <div class="item-content">
+                              <div class="item-media">
+                                <figure class="avatar avatar-30 no-shadow"><i class="material-icons">account_balance</i>
+                                </figure>
+                              </div>
+                              <div class="item-inner">
+                                <div class="item-title">Ruang</div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
+                          data-searchbar-placeholder="Pilih Tahun Ajaran">
+                          <select name="Tahun Ajaran"  @change="filterAktif">
+                            <option value="2014/2015">2014/2015 Ganjil</option>
+                            <option value="2014/2015">2014/2015 Genap</option>
+                            <option value="2015/2016">2015/2016 Ganjil</option>
+                            <option value="2015/2016">2015/2016 Genap</option>
+                            <option value="2016/2017">2016/2017 Ganjil</option>
+                            <option value="2016/2017">2016/2017 Genap</option>
+                            <option value="2017/2018">2017/2018 Ganjil</option>
+                            <option value="2017/2018">2017/2018 Genap</option>
+                            <option value="2018/2019">2018/2019 Ganjil</option>
+                            <option value="2018/2019">2018/2019 Genap</option>
+                            <option value="2019/2020">2019/2020 Ganjil</option>
+                            <option value="2019/2020" selected>2019/2020 Genap</option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media">
+                              <div class="item-media">
+                                <figure class="avatar avatar-30 no-shadow"><i class="material-icons">date_range</i>
+                                </figure>
+                              </div>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Periode</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-align-center mt-0" style="overflow-x:auto;">
+        <table width="100%">
+          <thead>
+            <tr>
+              <th class="hari" style="height: auto;"></th>
+              <th class="hari" style="height: auto;">Sen</th>
+              <th class="hari" style="height: auto;">Sel</th>
+              <th class="hari" style="height: auto;">Rab</th>
+              <th class="hari" style="height: auto;">Kam</th>
+              <th class="hari" style="height: auto;">Jum</th>
+              <th class="hari" style="height: auto;">Sab</th>
+              <th class="hari" style="height: auto;">Min</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#if loading3}}
+            <tr>
+              <th class="hari">1<p class="text-mute small">7:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th class="hari">2<p class="text-mute small">8:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th class="hari">3<p class="text-mute small">9:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th class="hari">4<p class="text-mute small">10:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th class="hari">5<p class="text-mute small">11:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th class="hari">6<p class="text-mute small">12:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th class="hari">7<p class="text-mute small">13:00</p>
+              </th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            {{else}}
+            <tr>
+              <th class="hari" height="80px">1<p class="text-mute small">7.00</p>
+              </th>
+              <td style="background-color: white;"><a href="/tambah_jadwalRuangan/"><i
+                    class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;" href="#" class=" sheet-open"
+                data-sheet=".demo-sheet-swipe-to-close-detailRuangan">XR1</td>
+              <td style="background-color: white;">XIR3</td>
+              <td style="background-color: white;">XR6</td>
+              <td style="background-color: white;">XIIR7</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+            </tr>
+            <tr>
+              <th class="hari" height="80px">2<p class="text-mute small">8.00</p>
+              </th>
+              <td style="background-color: white;">XIT7</td>
+              <td style="background-color: white;">XIT1</td>
+              <td style="background-color: white;">XR1</td>
+              <td style="background-color: white;">XIIR7</td>
+              <td style="background-color: white;">XR5</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+            </tr>
+            <tr>
+              <th class="hari" height="80px">3<p class="text-mute small">9.00</p>
+              </th>
+              <td style="background-color: white;">XIT1</td>
+              <td style="background-color: white;">XT1</td>
+              <td style="background-color: white;">XR2</td>
+              <td style="background-color: white;">XR3</td>
+              <td style="background-color: white;">XR5</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+
+            </tr>
+            <tr>
+              <th class="hari" height="80px">4<p class="text-mute small">10.00</p>
+              </th>
+              <td style="background-color: white;">XR2</td>
+              <td style="background-color: white;">XR2</td>
+              <td style="background-color: white;">XIT3</td>
+              <td style="background-color: white;">XIT3</td>
+              <td style="background-color: white;">XIIT7</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+
+            </tr>
+            <tr>
+              <th class="hari" height="80px">5<p class="text-mute small">11.00</p>
+              </th>
+              <td style="background-color: white;">XR7</td>
+              <td style="background-color: white;">XR7</td>
+              <td style="background-color: white;">XR2</td>
+              <td style="background-color: white;">XR2</td>
+              <td style="background-color: white;">XIIT7</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+            </tr>
+            <tr>
+              <th class="hari" height="80px">6<p class="text-mute small">12.00</p>
+              </th>
+              <td style="background-color: white;">XR7</td>
+              <td style="background-color: white;">XR7</td>
+              <td style="background-color: white;">XIIT7</td>
+              <td style="background-color: white;">XIIR3</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;">XIIR3</td>
+              <td style="background-color: white;">XIIR3</td>
+            </tr>
+            <tr>
+              <th class="hari" height="80px">7<p class="text-mute small">13.00</p>
+              </th>
+              <td style="background-color: white;">XIIR3</td>
+              <td style="background-color: white;">XIIR3</td>
+              <td style="background-color: white;">XIIR1</td>
+              <td style="background-color: white;">XIIT7</td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+              <td style="background-color: white;"><a href="#" class=" sheet-open"
+                  data-sheet=".demo-sheet-swipe-to-close-tambah"><i class="material-icons vm medium"></i></a></td>
+            </tr>
+            {{/if}}
+          </tbody>
+        </table>
+        <br><br>
+      </div>
+    </div>
+    <div class="popover popover-menu-jadwal_pelajaran">
+      <div class="popover-angle"></div>
+      <div class="popover-inner">
+        <div class="list">
+          <ul>
+            <li><a href="/jadwalGuru/" class="list-button popover-close">Jadwal Guru</a></li>
+            <li><a href="/penjadwalan/" class="list-button popover-close">Jadwal Pelajaran</a></li>
+            <li><a href="/kelas/" class="list-button popover-close">Kelas</a></li>
+            <li><a href="/kalender_akademik/" class="list-button popover-close">Kalender Akademik</a></li>
+            <li><a href="/langkah/" class="list-button popover-close">Pengaturan</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-modal demo-sheet-swipe-to-close-detailRuangan" style="height:auto">
+      <div class="sheet-modal-inner">
+        <div class="swipe-handler"></div>
+        <div class="page-content">
+          <div class="block-title text-align-center" style="background-color: White;">
+            <h4 class="mb-3">XR1</h4>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">today</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Hari</div>
+                    <div class="item-after" id="hari">Selasa</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">access_time</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Jam Ke</div>
+                    <div class="item-after" id="jamKe">1</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">account_balance</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Tempat</div>
+                    <div class="item-after">Ruang 1</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">library_books</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Mata Pelajaran</div>
+                    <div class="item-after">Bahasa Indonesia</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">school</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">Pengajar</div>
+                    <div class="item-after">Siti Tejo S.ccd</div>
+                  </div>
+                </div>
+              </li>
+              <li class="media-list">
+                <div class="item-content">
+                  <div class="item-media"><i class="material-icons vm text-template">note</i></div>
+                  <div class="item-inner">
+                    <div class="item-title-row">
+                      <div class="item-title">Catatan</div>
+                    </div>
+                    <div class="text-mute">Odading mang oleh emh rasanya seperti anda menjadi ironman</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="block">
+            <div class="block">
+              <p class="row">
+                <a class="col button button-fill button-round color-red mr-1">Hapus</a>
+                <a href="/edit_jadwalRuangan/" class="col button button-fill button-round ml-1">Edit</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+  .smart-select-page .page-content .list .item-radio .item-inner {
+    margin-left: -18px;
+  }
+
+  .smart-select-page .page-content .list {
+    margin-top: 0px;
+  }
+
+  span.searchbar-disable-button::after {
+    margin-top: -20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    min-width: 40px;
+    height: 50px;
+  }
+</style>
+<script>
+  return {
+    data:function(){
+      return{
+        loading3:true,
+      }
+    },
+    methods: {
+      halaman: function () {
+        var self = this;
+        var app = self.$app;
+        var $ = self.$;
+        var acc = true;
+
+        setTimeout(function () {
+          self.$setState({
+            loading3: false
+          });
+        }, 1000);
+
+        $('#testruang').on('click', function () {
+          if (acc == true) {
+            acc = false;
+            app.accordion.close('.accorruang');
+          } else {
+            acc = true;
+            app.accordion.open('.accorruang');
+          };
+        });
+      },
+      start: function () {
+        $("#ptr4").show();
+      },
+      ptr: function (e, done) {
+        var self = this;
+        var $ = self.$$;
+        self.$setState({
+          loading3: true
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading3: false
+          });
+          $("#ptr4").hide();
+        }, 1000); // refresh done
+
+        setTimeout(function () {
+          self.$setState({
+            items: self.items,
+          });
+          // Done
+          done();
+        }, 600);
+        this.halaman();
+      },
+      filterAktif: function () {
+        var self = this;
+        self.$setState({
+          loading3: true
+        });
+        setTimeout(function () {
+          self.$setState({
+            loading3: false
+          });
+        }, 1000);
+      },
+      createPopup: function () {
+        var self = this;
+        // Create popup
+        if (!self.popup) {
+          self.popup = self.$app.popup.create({
+            content: '\
+              <div class="popup">\
+                <div class="page light">\
+                  <div class="navbar">\
+                    <div class="navbar-bg"></div>\
+                    <div class="navbar-inner">\
+                      <div class="title">Dynamic Popup</div>\
+                      <div class="right"><a href="#" class="link popup-close">Close</a></div>\
+                    </div>\
+                  </div>\
+                  <div class="page-content">\
+                    <div class="block">\
+                      <p>This popup was created dynamically</p>\
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus mauris leo, eu bibendum neque congue non. Ut leo mauris, eleifend eu commodo a, egestas ac urna. Maecenas in lacus faucibus, viverra ipsum pulvinar, molestie arcu. Etiam lacinia venenatis dignissim. Suspendisse non nisl semper tellus malesuada suscipit eu et eros. Nulla eu enim quis quam elementum vulputate. Mauris ornare consequat nunc viverra pellentesque. Aenean semper eu massa sit amet aliquam. Integer et neque sed libero mollis elementum at vitae ligula. Vestibulum pharetra sed libero sed porttitor. Suspendisse a faucibus lectus.</p>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>\
+            '
+          });
+        }
+        // Open it
+        self.popup.open();
+      },
+      toggleSwipeStep: function () {
+        var self = this;
+        self.sheetSwipeToStep.stepToggle();
+      },
+      createSheet: function () {
+        var self = this;
+        // Create sheet modal
+        if (!self.sheet) {
+          self.sheet = self.$app.sheet.create({
+            content: '\
+              <div class="sheet-modal">\
+                <div class="toolbar">\
+                  <div class="toolbar-inner justify-content-flex-end">\
+                    <a href="#" class="link sheet-close">Close</a>\
+                  </div>\
+                </div>\
+                <div class="sheet-modal-inner">\
+                  <div class="page-content">\
+                    <div class="block">\
+                      <p>This sheet modal was created dynamically</p>\
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus mauris leo, eu bibendum neque congue non. Ut leo mauris, eleifend eu commodo a, egestas ac urna. Maecenas in lacus faucibus, viverra ipsum pulvinar, molestie arcu. Etiam lacinia venenatis dignissim. Suspendisse non nisl semper tellus malesuada suscipit eu et eros. Nulla eu enim quis quam elementum vulputate. Mauris ornare consequat nunc viverra pellentesque. Aenean semper eu massa sit amet aliquam. Integer et neque sed libero mollis elementum at vitae ligula. Vestibulum pharetra sed libero sed porttitor. Suspendisse a faucibus lectus.</p>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>\
+            '
+          });
+        }
+        // Close inline sheet
+        if (self.$('.demo-sheet.modal-in').length > 0) self.$app.sheet.close('.demo-sheet');
+        // Open it
+        self.sheet.open();
+      },
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+        this.halaman();
+        self.sheetPush = self.$app.sheet.create({
+          el: '.demo-sheet-push-tambah',
+          push: true,
+          backdrop: true,
+        });
+        self.sheetSwipeToClose = self.$app.sheet.create({
+          el: '.demo-sheet-swipe-to-close',
+          swipeToClose: true,
+          push: true,
+          backdrop: true,
+        });
+        self.sheetSwipeToClose = self.$app.sheet.create({
+          el: '.demo-sheet-swipe-to-close-tambah',
+          swipeToClose: true,
+          push: true,
+          backdrop: true,
+        });
+        self.sheetSwipeToClose = self.$app.sheet.create({
+          el: '.demo-sheet-swipe-to-close-detailRuangan',
+          swipeToClose: true,
+          push: true,
+          backdrop: true,
+        });
+        self.sheetSwipeToStep = self.$app.sheet.create({
+          el: '.demo-sheet-swipe-to-step',
+          swipeToClose: true,
+          swipeToStep: true,
+          push: true,
+          backdrop: true,
+        });
+        self.popupSwipe = self.$f7.popup.create({
+          el: '.demo-popup-swipe-tambah',
+          swipeToClose: true,
+        });
+      },
+      pageBeforeOut: function () {
+        var self = this;
+        // Close opened sheets on page out
+        self.$app.sheet.close();
+      },
+      pageBeforeRemove: function () {
+        var self = this;
+        // Destroy sheet modal when page removed
+        if (self.sheet) self.sheet.destroy();
+        if (self.sheetPush) self.sheetPush.destroy();
+        if (self.sheetSwipeToClose) self.sheetSwipeToClose.destroy();
+        if (self.sheetSwipeToStep) self.sheetSwipeToStep.destroy();
+        if (self.popupSwipe) self.popupSwipe.destroy();
+      },
+    }
+  }
+</script>

@@ -1,0 +1,250 @@
+<template>
+  <div class="page page-homepage light" data-name="homepage">
+      <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                  <i class="icon icon-back"></i>
+                  <span class="if-not-md">Back</span>
+                </a>
+              </div>
+              <div class="title" style="margin-left:-10px;">Edit Pelajaran</div>
+              <div class="right">
+                <a class="link" href="/penjadwalan/" style="margin-right: -10px;" @click="showToastBottom">
+                  <i class="icon material-icons">save</i>
+                </a>
+                <a class="link popover-open" data-popover=".popover-menu-jadwal">
+                    <i class="icon material-icons">more_vert</i>
+                </a>
+              </div>
+          </div>
+      </div>
+      <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr" @ptr:pullstart="start">
+        <div class="ptr-preloader" id="ptr3" style="display: none;">
+            <div class="preloader"></div>
+            <div class="ptr-arrow"></div>
+        </div>           
+        <div class="block mt-0">
+              <div class="card mb-4 mt-0">
+                  <div class="card-content card-content-padding">
+                    <div class="list no-hairlines-md">
+                      <ul>
+                        <a>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">today</i></figure></div>
+                              <div class="item-inner">
+                                <div class="item-title">Hari</div>
+                                <div class="item-after" id="edit_hari">Selasa</div>
+                              </div>
+                            </div>
+                          </li>
+                        </a>
+                        <a>
+                          <li>
+                            <div class="item-content">
+                              <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">access_time</i></figure></div>
+                              <div class="item-inner">
+                                <div class="item-title">Jam Ke</div>
+                                <div class="item-after" id="edit_jamKe">1</div>
+                              </div>
+                            </div>
+                          </li>
+                        </a>
+                        <li>
+                          <a class="item-link smart-select smart-select-init" data-open-in="popup"  data-searchbar="true" data-page-title="Pilih Mata Pelajaran" data-searchbar-placeholder="Cari Mata Pelajaran">
+                            <select name="Kelas" data-option-icon="none">
+                              <option value="Sutejo" selected>Matematika (0892)</option>
+                              <option value="Fiersa Besari">IPS (0098)</option>
+                              <option value="Arief Muhammad">Internet Of Thing (0192)</option>
+                              <option value="Sukijah">Bahasa Indonesia (2921) </option>
+                              <option value="Mangoleh">Bahasa Inggris (0782)</option>
+                              <option value="Ade Londok">Ade Londok (0192)</option>
+                            </select>             
+                            <div class="item-content">
+                              <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">library_books</i></figure></div>
+                              <div class="item-inner">
+                                <div class="item-title">Pelajaran</div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="item-link smart-select smart-select-init" data-open-in="popup"  data-searchbar="true" data-page-title="Pilih Guru" data-searchbar-placeholder="Cari Guru">
+                            <select name="Kelas">
+                              <option value="Sutejo">Sutejo (1992)</option>
+                              <option value="Fiersa Besari">Fiersa Besari (1892)</option>
+                              <option value="Arief Muhammad">Arief Muhammad (1422)</option>
+                              <option value="Sukijah">Sukijah (1282)</option>
+                              <option value="Mangoleh">Mangoleh (1432)</option>
+                              <option value="Ade Londok">Ade Londok (1792)</option>
+                            </select>             
+                            <div class="item-content">
+                              <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">school</i></figure></div>
+                              <div class="item-inner">
+                                <div class="item-title">Guru</div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="item-link smart-select smart-select-init" data-open-in="popup"  data-searchbar="true" data-page-title="Pilih Ruang" data-searchbar-placeholder="Cari Ruang">
+                            <select name="Kelas">
+                              <option value="Sutejo">Ruang 1 (2892)</option>
+                              <option value="Fiersa Besari">Ruang 2 (2112)</option>
+                              <option value="Arief Muhammad">Ruang 3 (2981)</option>
+                              <option value="Sukijah">Ruang 4 (2127)</option>
+                              <option value="Mangoleh">Ruang 5 (2666)</option>
+                              <option value="Ade Londok">Ruang 6 (2981)</option>
+                            </select>             
+                            <div class="item-content">
+                              <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">account_balance</i></figure></div>
+                              <div class="item-inner">
+                                <div class="item-title">Ruangan</div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <a>
+                        <li class="item-content item-input">
+                          <div class="item-media">
+                            <figure class="avatar avatar-30 no-shadow"><i class="material-icons">note</i></figure>
+                          </div>
+                          <div class="item-inner">
+                            <div class="item-title">Catatan</div>
+                            <div class="item-input-wrap">
+                              <textarea class="resizable" placeholder="Masukkan catatan" value="Odading mang oleh emh rasanya seperti anda menjadi ironmen"></textarea>
+                            </div>
+                          </div>
+                        </li>
+                      </a>
+                      <a>
+                        <li>
+                          <div class="item-content item-input">
+                            <div class="item-media">
+                              <figure class="avatar avatar-30 no-shadow"><i class="icon demo-list-icon" id="demo-color-picker-palette-value"></i></figure>
+                            </div>
+                            <div class="item-inner">
+                              <div class="item-title">Warna</div>
+                              <div class="item-input-wrap">
+                                <input type="text" placeholder="Color" readonly="readonly" id="demo-color-picker-palette"/>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </a>
+                      </ul>
+                  </div>
+                  </div>
+              </div>
+              <a href="/penjadwalan/" class="button button-fill " @click="showToastBottom">Simpan</a>
+          </div>
+      </div>
+  </div>
+</template>
+<script>
+  return {
+    data() {
+        return {
+          colorPickerInlineValue: null,
+        }
+      },
+    methods: {
+      halaman: function(){
+          var self = this;
+            var app = self.$app;
+            var $ = self.$;
+            var acc = true;
+           
+            setTimeout(function() {
+                self.$setState({ loading3: false });
+            }, 1000);
+        },
+        start:function(){
+              $("#ptr3").show();
+            },
+        ptr: function (e, done) {
+                var self = this;
+                var $ = self.$$;
+                self.$setState({    
+                    loading3:true
+                });
+                setTimeout(function() {
+                self.$setState({ loading3: false });
+                $("#ptr3").hide();
+                }, 1000);// refresh done
+                
+                setTimeout(function () {
+                    self.$setState({
+                        items: self.items,
+                    });
+                // Done
+                done();
+                }, 600);
+                this.halaman();
+            },
+      showToastBottom: function () {
+        var self = this;
+        // Create toast
+        if (!self.toastBottom) {
+          self.toastBottom = self.$app.toast.create({
+            text: 'Mata pelajaran telah diubah',
+            closeTimeout: 2000,
+          });
+        }
+        // Open it
+        self.toastBottom.open();
+      },
+    },
+    on: {
+      pageBeforeOut: function () {
+        var self = this;
+        self.$app.toast.close();
+      },
+      pageBeforeRemove: function () {
+        var self = this;
+        // Destroy toasts when page removed
+        if (self.toastBottom) self.toastBottom.destroy();
+        if (self.toastTop) self.toastTop.destroy();
+        if (self.toastCenter) self.toastCenter.destroy();
+        if (self.toastIcon) self.toastIcon.destroy();
+        if (self.toastLargeMessage) self.toastLargeMessage.destroy();
+        if (self.toastWithButton) self.toastWithButton.destroy();
+        if (self.toastWithCustomButton) self.toastWithCustomButton.destroy();
+        if (self.toastWithCallback) self.toastWithCallback.destroy();
+        self.colorPickerPalette.destroy();
+      },
+      pageInit: function(e, page) {
+          var self = this;
+          var app = self.$app;
+          var $ = self.$;
+          this.halaman();
+  
+          self.colorPickerPalette = app.colorPicker.create({
+            inputEl: '#demo-color-picker-palette',
+            targetEl: '#demo-color-picker-palette-value',
+            targetElSetBackgroundColor: true,
+            modules: ['palette'],
+            openIn: 'auto',
+            openInPhone: 'sheet',
+            palette: [
+              ['#FFEBEE', '#FFCDD2', '#EF9A9A', '#E57373', '#EF5350', '#F44336', '#E53935', '#D32F2F', '#C62828', '#B71C1C'],
+              ['#F3E5F5', '#E1BEE7', '#CE93D8', '#BA68C8', '#AB47BC', '#9C27B0', '#8E24AA', '#7B1FA2', '#6A1B9A', '#4A148C'],
+              ['#E8EAF6', '#C5CAE9', '#9FA8DA', '#7986CB', '#5C6BC0', '#3F51B5', '#3949AB', '#303F9F', '#283593', '#1A237E'],
+              ['#E1F5FE', '#B3E5FC', '#81D4FA', '#4FC3F7', '#29B6F6', '#03A9F4', '#039BE5', '#0288D1', '#0277BD', '#01579B'],
+              ['#E0F2F1', '#B2DFDB', '#80CBC4', '#4DB6AC', '#26A69A', '#009688', '#00897B', '#00796B', '#00695C', '#004D40'],
+              ['#F1F8E9', '#DCEDC8', '#C5E1A5', '#AED581', '#9CCC65', '#8BC34A', '#7CB342', '#689F38', '#558B2F', '#33691E'],
+              ['#FFFDE7', '#FFF9C4', '#FFF59D', '#FFF176', '#FFEE58', '#FFEB3B', '#FDD835', '#FBC02D', '#F9A825', '#F57F17'],
+              ['#FFF3E0', '#FFE0B2', '#FFCC80', '#FFB74D', '#FFA726', '#FF9800', '#FB8C00', '#F57C00', '#EF6C00', '#E65100'],
+            ],
+            value: {
+              hex: '#FFEBEE',
+            },
+            formatValue: function (value) {
+              return value.hex;
+            },
+          });
+        }
+    }
+  }
+</script>

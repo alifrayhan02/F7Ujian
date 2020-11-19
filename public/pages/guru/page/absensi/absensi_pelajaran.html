@@ -1,0 +1,273 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+      <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link back">
+                  <i class="icon icon-back"></i>
+                  <span class="if-not-md">Back</span>
+                </a>
+              </div>
+              <div class="title ">Absensi Mapel</div>
+              <div class="right">
+                <a class="link" href="/absensi_pelajaran/" @click="showToastBottom">
+                    <i class="icon material-icons">save</i>
+                </a>
+                <a class="link popover-open" data-popover=".popover-menu-laporan" >
+                    <i class="icon material-icons">more_vert</i>
+                </a>
+              </div>
+          </div>
+      </div>
+      <div class="fab fab-extended fab-right-bottom color-purple">
+        <a href="#" class="text-color-white">
+          <i class="icon f7-icons if-not-md">plus</i>
+          <i class="icon material-icons md-only">cloud_download</i>
+        </a>
+      </div>
+      <div class="page-content">
+        <div class="block">
+          <div class="card mb-4">
+              <div class="card-content card-content-padding">
+                <div class="list no-hairlines-md">
+                  <ul>
+                    <li>
+                        <a>
+                        <div class="item-content item-input">
+                          <div class="item-media"> 
+                            <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">today</i></figure></div>
+                          </div>
+                          <div class="item-inner">
+                            <div class="item-input-wrap">
+                                <input type="text" readonly="readonly" id="demo-calendar-absensi"/>
+                            </div>
+                          </div>
+                        </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-link smart-select smart-select-init" data-open-in="popup" data-page-title="Pilih Kelas"  data-searchbar="true" data-searchbar-placeholder="Cari kelas">
+                            <select name="fruits">
+                            <option value="apple" selected>XII RPL 1 (0909) </option>
+                            <option value="pineapple">XII RPL 2 (0908) </option>
+                            <option value="pear">XII RPL 3 (0907) </option>
+                            <option value="orange">XII RPL 4 (0906) </option>
+                            <option value="melon">XII RPL 5 (0905) </option>
+                            <option value="peach">XII RPL 6 (0904) </option>
+                            <option value="banana">XII RPL 7 (0903) </option>
+                          </select>
+                          <div class="item-content">
+                            <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">class</i></figure></div>
+                            <div class="item-inner">
+                              <div class="item-title">Kelas</div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="item-content">
+                          <div class="item-media"><figure class="avatar avatar-30 no-shadow"><i class="material-icons">list</i></figure></div>
+                          <div class="item-inner">
+                            <div class="item-title">Kategori</div>
+                            <div class="item-after">Absen Mata Pelajaran</div>
+                          </div>
+                        </a>
+                      </li>
+                  </ul>
+              </div>
+              </div>
+          </div>
+      </div>
+      <div class="data-table" >
+        <table width="100%">
+          <thead>
+            <tr>
+              <th class="label-cell nama" >Nama</th>
+              <th class="label-cell absensi"> Absensi</th>
+              <th class="keterangan label-cell"> Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td class="nama label-cell">Muhammad Rafly Amartharizqi</td>
+                <td class="absensi label-cell">
+                    <a class="item-link smart-select smart-select-init" data-open-in="sheet">
+                        <select name="mac-windows">
+                          <option value="masuk" slected>Masuk</option>
+                          <option value="ijin">Ijin</option>
+                          <option value="alpa">Alpa</option>
+                          <option value="sakit">Sakit</option>
+                        </select>
+                        <div class="item-content">
+                            <div class="item-inner">
+                            <button class="button button-small button-fill item-after" style="width: 100%;"></button>
+                            </div>
+                          </div>
+                    </a>
+                </td>
+                <td class="keterangan label-cell">
+                  <div class="input">
+                    <textarea class="keterangan" type="text" ></textarea>
+                  </div>
+                </td>
+            </tr>
+            <tr>
+              <td class="nama label-cell">Qorygore Termos</td>
+              <td class="absensi label-cell">
+                  <a class="item-link smart-select smart-select-init" data-open-in="sheet">
+                      <select name="mac-windows">
+                        <option value="masuk" slected>Masuk</option>
+                        <option value="ijin">Ijin</option>
+                        <option value="alpa">Alpa</option>
+                        <option value="sakit">Sakit</option>
+                      </select>
+                      <div class="item-content">
+                          <div class="item-inner">
+                          <button class="button button-small button-fill item-after" style="width: 100%;"></button>
+                          </div>
+                        </div>
+                  </a>
+              </td>
+              <td class="keterangan label-cell">
+                <div class="input">
+                  <textarea class="keterangan" type="text" ></textarea>
+                </div>
+              </td>
+          </tr>
+          <tr>
+            <td class="nama label-cell">Wak salim bin kirib</td>
+            <td class="absensi label-cell">
+                <a class="item-link smart-select smart-select-init" data-open-in="sheet">
+                    <select name="mac-windows">
+                      <option value="masuk" slected>Masuk</option>
+                      <option value="ijin">Ijin</option>
+                      <option value="alpa">Alpa</option>
+                      <option value="sakit">Sakit</option>
+                    </select>
+                    <div class="item-content">
+                        <div class="item-inner">
+                        <button class="button button-small button-fill item-after" style="width: 100%;"></button>
+                        </div>
+                      </div>
+                </a>
+            </td>
+            <td class="keterangan label-cell">
+              <div class="input">
+                <textarea class="keterangan" type="text" ></textarea>
+              </div>
+            </td>
+        </tr>
+        <tr>
+          <td class="nama label-cell">HAryono joji rich brian Salim </td>
+          <td class="absensi label-cell">
+              <a class="item-link smart-select smart-select-init" data-open-in="sheet">
+                  <select name="mac-windows">
+                    <option value="masuk" slected>Masuk</option>
+                    <option value="ijin">Ijin</option>
+                    <option value="alpa">Alpa</option>
+                    <option value="sakit">Sakit</option>
+                  </select>
+                  <div class="item-content">
+                      <div class="item-inner">
+                      <button class="button button-small button-fill item-after" style="width: 100%;"></button>
+                      </div>
+                    </div>
+              </a>
+          </td>
+          <td class="keterangan label-cell">
+            <div class="input">
+              <textarea class="keterangan" type="text" ></textarea>
+            </div>
+          </td>
+      </tr>
+          </tbody>
+        </table>
+        <br><br>
+      </div>
+    </div>
+    <div class="popover popover-menu-laporan">
+      <div class="popover-angle"></div>
+      <div class="popover-inner">
+          <div class="list">
+              <ul>
+                <li><a href="/input_absensi/" class="list-button popover-close">Input Siswa</a></li>
+                <li><a href="/laporan_absensi/" class="list-button popover-close">Laporan Absensi</a></li>
+                <li><a href="/laporan_persiswa/" class="list-button popover-close">Laporan Absensi Per Siswa</a></li>
+                <li><a href="/laporan_perbulan/" class="list-button popover-close">Laporan Absensi Per Bulan</a></li>
+              </ul>
+            </div>
+         </div>
+      </div>
+</div>
+</template>
+<style>
+   td.nama{
+        min-width: 220px;
+        padding-right: 0px;
+    }
+    td.absensi .button{
+        min-width: 80px;
+        background-color: blueviolet;
+        padding: 0px;
+    }
+    td.absensi{
+        padding-right: 0px;
+    }
+    th.keterangan{
+        min-width: 150px;
+    }
+    td.keterangan{
+        min-width: 150px;
+        padding-right: 20px;
+    }
+    td.keterangan .input textarea{
+      background-color: #ce91ff;
+    }
+    </style>
+<script>
+    return {
+      methods: {
+        showToastBottom: function () {
+        var self = this;
+        // Create toast
+        if (!self.toastBottom) {
+          self.toastBottom = self.$app.toast.create({
+            text: 'Absensi telah disimpan',
+            closeTimeout: 2000,
+          });
+        }
+        // Open it
+        self.toastBottom.open();
+      },
+     
+    },
+      on: {
+        pageInit: function(e, page) {
+          var self = this;
+          var today = new Date();
+          var app = self.$app;
+          var $ = self.$;
+          // Default
+          self.calendarDefault = app.calendar.create({
+            inputEl: '#demo-calendar-absensi',
+            value:[today],
+          });
+          // Inline with custom toolbar
+          var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+        },
+        pageBeforeOut: function () {
+        var self = this;
+        self.$app.toast.close();
+      },
+        pageBeforeRemove() {
+          var self = this;
+          self.calendarDefault.destroy();
+          if (self.toastBottom) self.toastBottom.destroy();
+        },
+       
+      },
+    }
+  </script>
+  
+  

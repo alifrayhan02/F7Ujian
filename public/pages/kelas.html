@@ -1,0 +1,354 @@
+<template>
+<div class="page page-homepage light" data-name="homepage">
+    <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="if-not-md">Back</span>
+              </a>
+            </div>
+            <div class="title ">Kelas</div>
+            <div class="right">
+              <a href="#" class="link popover-open" data-popover=".popover-menu">
+                  <figure class="avatar avatar-30 "><img src="img/user2.png" alt=""></figure>
+              </a>
+              <a class="link popover-open" data-popover=".popover-menu-jadwal">
+                  <i class="icon material-icons">more_vert</i>
+              </a>
+            </div>
+        </div>
+    </div>
+    <div class="fab fab-extended fab-center-bottom fab-morph" data-morph-to=".demo-fab-fullscreen-sheet.fab-morph-target">
+        <a href="#">
+            <i class="icon f7-icons if-not-md">plus</i>
+            <i class="material-icons text-color-white">add</i>
+            <div class="fab-text" style="color: white;">Tambah Kelas</div>
+        </a>
+    </div>
+    <div class="demo-fab-fullscreen-sheet fab-morph-target">
+        <h6 class="block-title">Tambah Kelas <a href="#" class="float-right small fab-close">Tutup</a></h6>
+        <div class="list no-hairlines-md">
+          <ul>
+            <li class="item-content item-input item-input-outline">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Nama Kelas</div>
+                <div class="item-input-wrap">
+                  <input type="text" placeholder="Masukkan nama kelas">
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-outline">
+              <div class="item-inner">
+                <div class="item-title item-floating-label">Kode Kelas</div>
+                <div class="item-input-wrap">
+                  <input type="text" placeholder="Masukkan kode kelas">
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-inner">
+                <div class="item-input-wrap">
+                  <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                      <input type="submit" value="" class="button button-fill" placeholder="Tambah">
+                    </div>
+                    <div class="col"></div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="block-title" height="100px">Kelas X</div>
+        <div id="list_kelas" class="list no-margin no-hairlines no-safe-area-left no-safe-area-bottom">
+            <ul>
+                <li class="item-content">
+                    <div class="event-color" style="background-color: black"></div>
+                    <div class="item-inner">
+                      <div class="item-title">X RPL 1
+                          <br>
+                          <small class="text-mute text-secondary">XR1</small>
+                      </div>
+                      <div class="item-after">
+                        <a href="#" @click="openDemo1">
+                            <i class="icon material-icons">more_vert</i>
+                        </a>
+                      </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="event-color" style="background-color: red"></div>
+                    <div class="item-inner">
+                      <div class="item-title">X RPL 2
+                          <br>
+                          <small class="text-mute text-secondary">XR2</small>
+                      </div>
+                      <div class="item-after">
+                        <a href="#" @click="openDemo1">
+                            <i class="icon material-icons">more_vert</i>
+                        </a>
+                      </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="event-color" style="background-color: green"></div>
+                    <div class="item-inner">
+                      <div class="item-title">X RPL 2
+                          <br>
+                          <small class="text-mute text-secondary">XR2</small>
+                      </div>
+                      <div class="item-after">
+                        <a href="#" @click="openDemo1">
+                            <i class="icon material-icons">more_vert</i>
+                        </a>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="popover popover-menu-jadwal">
+      <div class="popover-angle"></div>
+      <div class="popover-inner">
+          <div class="list links-list">
+              <ul>
+                <a href="/kelas/">
+                <li>
+                  <div class="row align-items-center padding">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-40 no-shadow border-0">
+                          <i class="icon material-icons">school</i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-normal mb-1 mt-0">Guru</h6>
+                    </div>
+                </div>
+                </li>
+                </a>
+                <a href="/kelas/">
+                <li>
+                  <div class="row align-items-center padding">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-40 no-shadow border-0">
+                          <i class="icon material-icons">class</i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-normal mb-1 mt-0">Kelas</h6>
+                    </div>
+                </div>
+                </li>
+              </a>
+              <a href="/kelas/">
+                <li>
+                  <div class="row align-items-center padding">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-40 no-shadow border-0">
+                          <i class="icon material-icons">library_books</i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-normal mb-1 mt-0">Mata Pelajaran</h6>
+                    </div>
+                </div>
+                </li>     
+                </a>
+                <a href="/kelas/">  
+                <li>
+                  <div class="row align-items-center padding">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-40 no-shadow border-0">
+                          <i class="icon material-icons">account_balance</i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-normal mb-1 mt-0">Ruangan</h6>
+                    </div>
+                </div>
+                </li>
+                </a>
+                <a href="/langkah/">
+                <li>
+                  <div class="row align-items-center padding">
+                    <div class="col-auto pr-0">
+                        <div class="avatar avatar-40 no-shadow border-0">
+                          <i class="icon material-icons">settings</i>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h6 class="font-weight-normal mb-1 mt-0">Pengaturan</h6>
+                    </div>
+                </div>
+                </li>
+                </a>
+              </ul>
+            </div>
+         </div>
+      </div>
+</div>
+</template>
+<style>
+    #calendar, #list_kelas {
+      height: 50%;
+      box-sizing: border-box;
+    }
+    #calendar .calendar {
+      height: 100%;
+    }
+    #list_kelas ul {
+      height: 100%;
+      overflow: auto;
+    }
+    #list_kelas .event-color {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 8px;
+      height: 100%;
+    }
+    @media (orientation: landscape) {
+      #calendar {
+        float: left;
+      }
+      #calendar, #list_kelas {
+        height: 100%;
+      }
+      #calendar, #list_kelas {
+        width: 50%;
+      }
+      #list_kelas {
+        margin-left: 50% !important;
+        border-left: 1px solid #eee;
+      }
+      .theme-dark #list_kelas {
+        border-left-color: #282828;
+      }
+    }
+  </style>
+ <script>
+    return {
+      methods: {
+        openDemo1: function () {
+          var self = this;
+          self.actions1.open();
+        },
+        openDemo2: function () {
+          var self = this;
+          self.actions2.open();
+        },
+        openGrid: function () {
+          var self = this;
+          self.actionsGrid.open();
+        },
+        openActionsPopover: function () {
+          var self = this;
+          self.actionsToPopover.open();
+        },
+      },
+      on: {
+        pageBeforeRemove: function() {
+          var self = this;
+          self.actions1.destroy();
+          self.actions2.destroy();
+          self.actionsGrid.destroy();
+          self.actionsToPopover.destroy();
+        },
+        pageInit: function(page) {
+          var self = this;
+    
+          // 1 Group
+          var buttons1 = [
+            {
+              text: 'Edit',
+              icon: '<i class="icon material-icons">edit</i>'
+            },
+            {
+              text: 'Hapus',
+              icon: '<i class="icon material-icons">delete</i>'
+            },
+            {
+              text: 'Cancel',
+              align: 'center',
+              color: 'red'
+            },
+          ];
+    
+          // 2 Groups
+          var buttons2 = [
+            // First Group
+            [
+              {
+                text: 'Do something',
+                label: true
+              },
+              {
+                text: 'Button 1',
+                bold: true
+              },
+              {
+                text: 'Button 2',
+              }
+            ],
+            // Second Group
+            [
+              {
+                text: 'Cancel',
+                color: 'red'
+              }
+            ]
+          ]
+    
+          // Grid buttons with icons/images
+          var gridButtons = [
+            [
+              {
+                text: 'Button 1',
+                icon: '<img src="https://cdn.framework7.io/placeholder/people-96x96-1.jpg" width="48" style="max-width: 100%"/>'
+              },
+              {
+                text: 'Button 2',
+                icon: '<img src="https://cdn.framework7.io/placeholder/people-96x96-2.jpg" width="48" style="max-width: 100%">'
+              },
+              {
+                text: 'Button 3',
+                icon: '<img src="https://cdn.framework7.io/placeholder/people-96x96-3.jpg" width="48" style="max-width: 100%">'
+              },
+            ],
+            [
+              {
+                text: 'Button 1',
+                icon: '<img src="https://cdn.framework7.io/placeholder/fashion-96x96-4.jpg" width="48" style="max-width: 100%"/>'
+              },
+              {
+                text: 'Button 2',
+                icon: '<img src="https://cdn.framework7.io/placeholder/fashion-96x96-5.jpg" width="48" style="max-width: 100%">'
+              },
+              {
+                text: 'Button 3',
+                icon: '<img src="https://cdn.framework7.io/placeholder/fashion-96x96-6.jpg" width="48" style="max-width: 100%">'
+              },
+            ],
+          ]
+    
+          self.actions1 = self.$app.actions.create({buttons: buttons1});
+          self.actions2 = self.$app.actions.create({buttons: buttons2});
+          self.actionsGrid = self.$app.actions.create({buttons: gridButtons, grid: true});
+    
+          // Actions To Popover
+          self.actionsToPopover = self.$app.actions.create({
+            buttons: buttons1,
+            // Need to specify popover target
+            targetEl: self.$el.find('.button-to-popover')
+          });
+        }
+      }
+    }
+    </script>
+    

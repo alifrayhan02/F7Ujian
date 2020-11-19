@@ -1,13 +1,8 @@
 var routes = [
-  //Signin Page
-  {
-    path: '/signin/',
-    url: './pages/signin.html',
-  },
   // Index page
   {
     path: '/',
-    url: './index.html',
+    componentUrl: 'index.html',
     name: 'home',
   },
   // About page
@@ -16,106 +11,195 @@ var routes = [
     url: './pages/about.html',
     name: 'about',
   },
-  //Soal
   {
-    path: '/soal/',
-    url: './pages/soal.html'
+    path: '/iklan/',
+    componentUrl: './pages/iklan.html',
+    name: 'about',
   },
-
-  //Guru
   {
-    path: '/guruHome/',
-    componentUrl: './pages/guruHome.html'
+    path: '/isi_toko/',
+    url: './pages/isi_toko.html',
+    name: 'isi_toko',
   },
-
-  //Profil Guru
   {
-    path: '/profilGuru/'
+    path: '/pusat-bantuan/',
+    componentUrl: './pages/guru/bantuan/pusat-bantuan.html',
+    name: 'pusat-bantuan',
   },
-  //Daftar Kelas
   {
-    path : '/daftarKelas/',
-    url : './pages/daftarKelas.html'
+    path: '/nilai-home/',
+    componentUrl: './pages/guru/page/nilai/nilai-home.html',
+    name: 'nilai-home',
   },
-
-  //Daftar SIswa
   {
-    path: '/daftarSiswa/',
-    url: './pages/daftarSiswa.html'
+    path: '/nila-tambah/',
+    componentUrl: './pages/guru/page/nilai/nila-tambah.html',
+    name: 'nila-tambah',
   },
-
-  //Data Siswa
   {
-    path: '/dataSiswa/',
-    url: './pages/dataSiswa.html'
+    path: '/nilai-daftar/',
+    componentUrl: './pages/guru/page/nilai/nilai-daftar.html',
+    name: 'nilai-daftar',
   },
-
-  //Data Siswa 0
   {
-    path: '/dataSiswa0/',
-    url: './pages/dataSiswa0.html'
+    path: '/laporan-nilai-harian/',
+    componentUrl: './pages/guru/page/nilai/laporan_nilai/laporan-nilai-harian.html',
+    name: 'laporan-nilai-harian',
   },
-
-  //Paket Soal Ujian
   {
-    path: '/paketUjian/',
-    url: './pages/paketUjian.html'
+    path: '/laporan-nilai-bulanan/',
+    componentUrl: './pages/guru/page/nilai/laporan_nilai/laporan-nilai-bulanan.html',
+    name: 'laporan-nilai-bulanan',
   },
-
-  //Paket Soal Try Out
   {
-    path: '/paketTO/',
-    url: './pages/paketTO.html'
+    path: '/laporan-nilai-siswa/',
+    componentUrl: './pages/guru/page/nilai/laporan_nilai/laporan-nilai-siswa.html',
+    name: 'laporan-nilai-siswa',
   },
-
-  //Next Soal
   {
-    path: '/nextsoal/',
-    url: './pages/soal2.html'
+    path: '/laporan-nilai-siswa-detail/',
+    componentUrl: './pages/guru/page/nilai/laporan_nilai/laporan-nilai-siswa-detail.html',
+    name: 'nilai_persiswa',
   },
-
-  //Try Out
   {
-    path: '/to/',
-    url: './pages/to1.html'
+    path: '/home_absensi/',
+    componentUrl: './pages/guru/page/absensi/home_absensi.html',
+    name: 'home_absensi',
   },
-  //Next Try Out
   {
-    path: '/nextto/',
-    url: './pages/to2.html'
+    path: '/input_absensi/',
+    componentUrl: './pages/guru/page/absensi/input_absensi.html',
+    name: 'home_absensi',
   },
-  //Done Try Out
   {
-    path: '/dto/',
-    url: './pages/dto.html'
+    path: '/input_absensi/',
+    componentUrl: './pages/guru/page/absensi/input_absensi.html',
+    name: 'input_absensi',
   },
-  //Pembahasan Try Out
   {
-    path: '/pembahasan/',
-    url: './pages/pembahasanto.html'
+    path: '/absensi_pelajaran/',
+    componentUrl: './pages/guru/page/absensi/absensi_pelajaran.html',
+    name: 'absensi_pelajaran',
   },
-  //Selesai
   {
-    path: '/done/',
-    url: './pages/done.html'
+    path: '/laporan_absensi/',
+    componentUrl: './pages/guru/page/absensi/laporan_absensi/laporan_absensi.html',
+    name: 'laporan_absensi',
   },
-
-  //Detail Ujian
   {
-    path: '/detailPU/',
-    url: './pages/detailPU.html'
+    path: '/laporan_persiswa/',
+    componentUrl: './pages/guru/page/absensi/laporan_absensi/laporan_persiswa.html',
+    name: 'laporan_persiswa',
   },
-
-  //Input Soal
   {
-    path: '/inputSoal/',
-    url: './pages/inputSoal.html'
+    path: '/laporan_perbulan/',
+    componentUrl: './pages/guru/page/absensi/laporan_absensi/laporan_perbulan.html',
+    name: 'laporan_perbulan',
   },
-
-  //Daftar Soal
   {
-    path: '/daftarSoal/',
-    url: './pages/daftarSoal.html'
+    path: '/laporan_setiapSiswa/',
+    componentUrl: './pages/guru/page/absensi/laporan_absensi/laporan_setiapSiswa.html',
+    name: 'laporan_setiapSiswa',
+  },
+  {
+    path: '/tambah_event/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/tambah-event.html',
+    name: 'tambah_event',
+  },
+  {
+    path: '/edit_event/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/edit_event.html',
+    name: 'edit_event',
+  },
+  {
+    path: '/edit_pelajaran/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/edit_pelajaran.html',
+    name: 'edit_pelajaran',
+  },
+  {
+    path: '/edit_jadwalGuru/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/edit_jadwalGuru.html',
+    name: 'edit_jadwalGuru',
+  },
+  {
+    path: '/edit_jadwalRuangan/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/edit_jadwalRuangan.html',
+    name: 'edit_jadwalRuangan',
+  },
+  {
+    path: '/tambah_pelajaran/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/tambah_pelajaran.html',
+    name: 'tambah_pelajaran',
+  },
+  {
+    path: '/tambah_jadwalGuru/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/tambah_jadwalGuru.html',
+    name: 'tambah_jadwalGuru',
+  },
+  {
+    path: '/tambah_jadwalRuangan/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/tambah_jadwalRuangan.html',
+    name: 'tambah_jadwalRuangan',
+  },
+  {
+    path: '/langkah/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/langkah.html',
+    name: 'langkah',
+  },
+  {
+    path: '/kalender_akademik/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/kalender-akademik.html',
+    name: 'kalender_akademik',
+  },
+  {
+    path: '/kelas/',
+    componentUrl: './pages/kelas.html',
+    name: 'kelas',
+  },
+  {
+    path: '/jadwalRuang/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/jadwalRuang.html',
+    name: 'jadwalRuang',
+  },
+  {
+    path: '/jadwalGuru/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/jadwalGuru.html',
+    name: 'jadwalGuru',
+  },
+  {
+    path: '/jadwal_pelajaran/',
+    url: './pages/jadwal_pelajaran.html',
+    name: 'jadwal_pelajaran',
+  },
+  {
+    path: '/jadwal_kelas/',
+    url: './pages/jadwal_kelas.html',
+    name: 'jadwal_kelas',
+  },
+  {
+    path: '/jadwal_guru/',
+    componentUrl: './pages/jadwal_pelajaran/jadwal_guru/jadwal_guru.html',
+    name: 'jadwal_guru',
+  },
+  {
+    path: '/jadwal_siswa/',
+    componentUrl: './pages/jadwal_pelajaran/jadwal_siswa/jadwal_siswa.html',
+    name: 'jadwal_siswa',
+  },
+  {
+    path: '/jadwal/detail-jadwal/',
+    componentUrl: './pages/guru/page/jadwal/detail-jadwal.html',
+    name: 'detail-jadwal',
+  },
+  {
+    path: '/jadwal/jadwal-harian/',
+    componentUrl: './pages/guru/page/jadwal/jadwal-harian.html',
+    name: 'jadwal-harian',
+  },
+  {
+    path: '/penjadwalan/',
+    componentUrl: './pages/jadwal_pelajaran/penjadwal/penjadwalan.html',
+    name: 'jadwal',
   },
   // Right Panel pages
   {
@@ -179,11 +263,11 @@ var routes = [
     path: '/framework/',
     url: './pages/framework.html',
   },
-  // // signin page
-  // {
-  //   path: '/signin/',
-  //   url: './pages/signin.html',
-  // },
+  // signin page
+  {
+    path: '/signin/',
+    url: './pages/signin.html',
+  },
   // signup page
   {
     path: '/signup/',
@@ -207,7 +291,7 @@ var routes = [
   // home page
   {
     path: '/homepage/',
-    url: './pages/home.html',
+    componentUrl: './pages/guru/page/guru-home.html',
   },
   // thankyou page
   {
@@ -248,26 +332,6 @@ var routes = [
     componentUrl: './pages/appbar.html',
   },
   {
-    path: '/detailujian/',
-    componentUrl: './pages/detailujian.html',
-  },
-  {
-    path: '/detailto/',
-    componentUrl: './pages/detailto.html',
-  },
-  {
-    path: '/nilai/',
-    componentUrl: './pages/inputnilai.html',
-  },
-  {
-    path: '/iklan/',
-    componentUrl: './pages/iklan.html',
-  },
-  {
-    path: '/sudahujian/',
-    componentUrl: './pages/detailujianv2.html',
-  },
-  {
     path: '/autocomplete/',
     componentUrl: './pages/autocomplete.html',
   },
@@ -286,10 +350,6 @@ var routes = [
   {
     path: '/calendar-page/',
     componentUrl: './pages/calendar-page.html',
-  },
-  {
-    path: '/ujian/',
-    componentUrl: './pages/homev2.html',
   },
   {
     path: '/cards/',
