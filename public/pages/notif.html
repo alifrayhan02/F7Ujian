@@ -24,17 +24,18 @@
         <div class="block px-2">
         <p style="text-align: center;">Berfungsi push notifikasi dari Android</p>
         <a onClick="showNotif()" class="col button button-fill button-raised color-default mb-0  mx-3">Push Notif</a>
+        <script>
+                  function showNotif() {
+                    Android.showNotif();
+                }
+        </script>
       </div>
   
   
     </div>
   </template>
   <script>
-      function showNotif() {
-                    var desc = "Jumat, 1 November 2020 sudah waktunya membayar SPP";
-                    var title = "Pembayaran SPP tgl 1 November";
-                    Android.showNotif();
-                }
+
     var hari = new Date();
     var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
     var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
