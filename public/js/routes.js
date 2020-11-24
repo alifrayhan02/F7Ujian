@@ -27,6 +27,11 @@ var routes = [
     name: 'qr',
   },
   {
+    path: '/uuid/',
+    componentUrl: './pages/uuid.html',
+    name: 'uuid',
+  },
+  {
     path: '/isi_toko/',
     url: './pages/isi_toko.html',
     name: 'isi_toko',

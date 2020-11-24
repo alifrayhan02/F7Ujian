@@ -60,7 +60,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="item-link item-content">
+                    <a href="/uuid/" class="item-link item-content">
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -70,7 +70,7 @@
                       </div>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="#" class="item-link item-content">
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
@@ -80,7 +80,7 @@
                         <div class="item-subtitle">Indikator Loading manual</div>
                       </div>
                     </a>
-                  </li>
+                  </li> -->
                   <li>
                     <a href="#" class="item-link item-content">
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
@@ -126,7 +126,15 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="item-link item-content">
+                    <a onClick="gotoActivityCounter()" class="item-link item-content">
+                        <script>
+                            function gotoActivityAmbil() {
+                                Android.gotoActivityAmbil();
+                            }
+                            function gotoActivityCounter() {
+                                Android.gotoActivityCounter();
+                            }
+                        </script>
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -137,7 +145,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="item-link item-content">
+                    <a onClick="gotoActivityAmbil()" class="item-link item-content">
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
                         <div class="item-title-row">
