@@ -22,9 +22,24 @@ var routes = [
     name: 'location',
   },
   {
+    path: '/reset/',
+    componentUrl: './pages/reset.html',
+    name: 'reset',
+  },
+  {
     path: '/scanqr/',
     componentUrl: './pages/scanqr.html',
     name: 'qr',
+  },
+  {
+    path: '/notif/',
+    componentUrl: './pages/notif.html',
+    name: 'notif',
+  },
+  {
+    path: '/url/',
+    componentUrl: './pages/url.html',
+    name: 'url',
   },
   {
     path: '/uuid/',
