@@ -1,0 +1,122 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="back">
+              <i class="icon icon-back mr-3 ml-3"></i>
+              <span class="if-not-md">Back</span>
+            </a>
+          </div>
+          <div class="title" style="margin-left: 10px;">Scan QR</div>
+          <div class="right">
+            <a class="popover-open mr-2" data-popover=".popover-menu-bantuan" style="padding-left: 10px;">
+              <i class="material-icons">more_vert</i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr1" @ptr:pullstart="start1">
+        <div class="ptr-preloader" id="ptr1" style="display: none;">
+          <div class="preloader"></div>
+          <div class="ptr-arrow"></div>
+        </div>
+        <div class="block px-2">
+        <p style="text-align: center;">QR Scan Feature</p>
+        <h6 style="text-align: center; padding-top: 20px ;">Via Android Studio</h6>
+        <a href="qrcode://" class="col button button-fill button-raised color-default mb-0  mx-3 link external">Scan QR</a>
+        <h6 style="text-align: center;">Via HTML5</h6>
+        <div id="qr-reader" class="block px-2" ></div>
+            <div id="qr-reader-results" class="block px-2"></div>
+            <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+            <script>
+                var resultContainer = document.getElementById('qr-reader-results');
+                var lastResult, countResults = 0;
+
+                function onScanSuccess(qrCodeMessage) {
+                    if (qrCodeMessage !== lastResult) {
+                        ++countResults;
+                        lastResult = qrCodeMessage;
+                        resultContainer.innerHTML
+                            += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
+                    }
+                }
+
+                var html5QrcodeScanner = new Html5QrcodeScanner(
+                    "qr-reader", { fps: 10, qrbox: 250 });
+                html5QrcodeScanner.render(onScanSuccess);
+            </script>
+        </div>
+      </div>
+  
+  
+    </div>
+  </template>
+  <script>
+    var hari = new Date();
+    var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+      'November', 'Desember'
+    ];
+  
+    setTimeout(function () {
+      notifikasiLinkSmartWarning.open(text, subtitle);
+      var desc = "Jumat, 1 November 2020 sudah waktunya membayar SPP";
+      var title = "Pembayaran SPP tgl 1 November";
+      Android.showNotif(text, subtitle);
+    }, 5000);
+  
+    return {
+      data: function () {
+        return {
+          tanggal: namaHari[hari.getDay()] + ', ' + hari.getDate() + ' ' + monthNames[hari.getMonth()] + ' ' +
+            hari.getFullYear(),
+          loading: true,
+        }
+      },
+      methods: {
+        ptr1: function (e, done) {
+          var self = this;
+          var $ = self.$$;
+          self.$setState({
+            loading: true
+          });
+          setTimeout(function () {
+            self.$setState({
+              loading: false
+            });
+            $("#ptr1").hide();
+          }, 1000); // refresh done
+  
+          setTimeout(function () {
+            self.$setState({
+              items: self.items,
+            });
+            // Done
+            done();
+          }, 600);
+          this.Halaman;
+        },
+        start1: function () {
+          $("#ptr1").show();
+        },
+        halAwal: function () {
+          var self = this;
+          var app = self.$app;
+          var $ = self.$;
+  
+          setTimeout(function () {
+            self.$setState({
+              loading: false
+            });
+          }, 600);
+        }
+      },
+      on: {
+        pageInit: function (e, page) {
+          this.halAwal()
+        },
+      }
+  
+    }
+  </script>

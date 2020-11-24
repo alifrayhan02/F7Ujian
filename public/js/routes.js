@@ -17,6 +17,16 @@ var routes = [
     name: 'about',
   },
   {
+    path: '/geolocation/',
+    componentUrl: './pages/geolocation.html',
+    name: 'location',
+  },
+  {
+    path: '/scanqr/',
+    componentUrl: './pages/scanqr.html',
+    name: 'qr',
+  },
+  {
     path: '/isi_toko/',
     url: './pages/isi_toko.html',
     name: 'isi_toko',
