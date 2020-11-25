@@ -1,0 +1,113 @@
+<template>
+    <div class="page page-homepage light" data-name="homepage">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="back">
+                        <i class="icon icon-back mr-3 ml-3"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title" style="text-align: center;">Video</div>
+                <div class="right">
+                    <a class="popover-open mr-2" data-popover=".popover-menu-bantuan" style="padding-left: 10px;">
+                        <i class="material-icons">more_vert</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:refresh="ptr1" @ptr:pullstart="start1">
+            <div class="ptr-preloader" id="ptr1" style="display: none;">
+                <div class="preloader"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+            <div class="block px-2">
+                <div class="block-title" style="margin-left: 5px;">Play Video Feature</div>
+                <div class="card demo-card-header-pic">
+                    <!-- <div class="card-content"> <img src="https://cdn.framework7.io/placeholder/nature-1000x700-8.jpg" width="100%"/></div> -->
+                    <div class="card-content card-content-padding">
+                        <p class="date">Posted on January 21, 2015</p>
+                        <p>WebViewGold memungkinkan penerusan ID perangkat non-pribadi dan unik (UUID / "Universal Unique Identifier") ke JavaScript, yang dapat digunakan untuk mengidentifikasi perangkat Android secara unik. Ini dapat berguna, misalnya, untuk menyimpan pengaturan atau nilai di sisi server dan memulihkannya di sisi klien. Harap hormati peraturan privasi lokal dan internasional jika Anda menggunakan API ini.</p>
+                        <video width="340" controls>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                          </video>
+                          <p style="padding-top: 10px;">
+                            Video courtesy of 
+                            <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.
+                            </p>
+                            <iframe width="300" height="200" src="https://www.youtube.com/embed/0HTexqxo1og" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- <div class="card-footer"><a href="#" class="link">Like</a><a href="#" class="link">Read more</a>
+                    </div> -->
+                </div>
+                <!-- <p style="text-align: center;">UUID Feature</p>
+        <a href="get-uuid://" class="col button button-fill button-raised color-default mb-0  mx-3 link external">Get UDID</a>
+        <br>
+        <a href="#" onClick="alert(uuid);" class="col button button-fill button-raised color-default mb-0  mx-3">Show UDID</a> -->
+            </div>
+        </div>
+  
+  
+    </div>
+  </template>
+  <script>
+    var hari = new Date();
+    var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+    var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+        'November', 'Desember'
+    ];
+    return {
+        data: function () {
+            return {
+                tanggal: namaHari[hari.getDay()] + ', ' + hari.getDate() + ' ' + monthNames[hari.getMonth()] + ' ' +
+                    hari.getFullYear(),
+                loading: true,
+            }
+        },
+        methods: {
+            ptr1: function (e, done) {
+                var self = this;
+                var $ = self.$$;
+                self.$setState({
+                    loading: true
+                });
+                setTimeout(function () {
+                    self.$setState({
+                        loading: false
+                    });
+                    $("#ptr1").hide();
+                }, 1000); // refresh done
+  
+                setTimeout(function () {
+                    self.$setState({
+                        items: self.items,
+                    });
+                    // Done
+                    done();
+                }, 600);
+                this.Halaman;
+            },
+            start1: function () {
+                $("#ptr1").show();
+            },
+            halAwal: function () {
+                var self = this;
+                var app = self.$app;
+                var $ = self.$;
+  
+                setTimeout(function () {
+                    self.$setState({
+                        loading: false
+                    });
+                }, 600);
+            }
+        },
+        on: {
+            pageInit: function (e, page) {
+                this.halAwal()
+            },
+        }
+  
+    }
+  </script>

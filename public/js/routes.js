@@ -42,6 +42,26 @@ var routes = [
     name: 'url',
   },
   {
+    path: '/audio/',
+    componentUrl: './pages/audio.html',
+    name: 'audio',
+  },
+  {
+    path: '/download/',
+    componentUrl: './pages/download.html',
+    name: 'download',
+  },
+  {
+    path: '/video/',
+    componentUrl: './pages/video.html',
+    name: 'video',
+  },
+  {
+    path: '/upload/',
+    componentUrl: './pages/upload.html',
+    name: 'upload',
+  },
+  {
     path: '/uuid/',
     componentUrl: './pages/uuid.html',
     name: 'uuid',
