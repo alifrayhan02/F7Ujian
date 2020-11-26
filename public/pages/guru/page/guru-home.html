@@ -38,21 +38,7 @@
             <div class="list media-list">
                 <ul>
                   <li>
-                    <a onClick="gotoActivityLoc()" class="item-link item-content">
-                      <script>
-                        function gotoActivityAud() {
-                              Android.gotoActivityAud();
-                          }
-                        function gotoActivityLoc() {
-                              Android.gotoActivityLoc();
-                          }
-                          function gotoActivityAmbil() {
-                              Android.gotoActivityAmbil();
-                          }
-                          function gotoActivityCounter() {
-                              Android.gotoActivityCounter();
-                          }
-                      </script>
+                    <a href="/geolocation/" class="item-link item-content">
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -141,6 +127,14 @@
                   </li>
                   <li>
                     <a onClick="gotoActivityCounter()" class="item-link item-content">
+                        <script>
+                            function gotoActivityAmbil() {
+                                Android.gotoActivityAmbil();
+                            }
+                            function gotoActivityCounter() {
+                                Android.gotoActivityCounter();
+                            }
+                        </script>
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
                         <div class="item-title-row">
@@ -184,7 +178,7 @@
                     </a>
                   </li>
                   <li>
-                    <a onClick="gotoActivityAud()" class="item-link item-content">
+                    <a href="/audio/" class="item-link item-content">
                         <div class="item-media"><figure class="avatar avatar-30"><i class="material-icons">home</i></figure></div>
                       <div class="item-inner">
                         <div class="item-title-row">
