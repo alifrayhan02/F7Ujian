@@ -24,6 +24,7 @@
       <div class="block px-2">
         <script>
           var x = document.getElementById("demo");
+
           function getLocation() {
             if (navigator.geolocation) {
               navigator.geolocation.watchPosition(showPosition);
@@ -40,10 +41,14 @@
         <div class="block-title" style="margin-left: 5px;">HTML5 Geolocation API Feature</div>
         <div class="card demo-card-header-pic">
           <div class="card-content card-content-padding">
-            <p>Fitur Geolokasi HTML5 memungkinkan pengguna untuk mengkomunikasikan posisi mereka sendiri ke aplikasi web</p>
+            <p>Fitur Geolokasi HTML5 memungkinkan pengguna untuk mengkomunikasikan posisi mereka sendiri ke aplikasi web
+            </p>
             <p class="row">
-              <a onclick="getLocation()" class="col button button-fill button-raised color-default mb-0  mx-3">Check
+              <a onclick="mbo()" class="col button button-fill button-raised color-default mb-0  mx-3">Check
                 your position</a>
+              <div class="card-block" id="formatted-address"></div>
+              <!--                <div class="card-block" id="address-components"></div>-->
+              <div class="card-block" id="geometry"></div><br>
               <p id="demo"></p>
             </p>
           </div>
@@ -55,6 +60,62 @@
   </div>
 </template>
 <script>
+
+
+  function mbo() {
+    
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          latlng: lati + "," + longi,
+          key: 'AIzaSyC27LzLfV5wYJydIW6-k5iygCt55pv8sGg'
+        }
+      })
+      .then(function (response) {
+        // Log full response
+        console.log(response);
+
+        // Formatted Address
+        var formattedAddress = response.data.results[0].formatted_address;
+        var formattedAddressOutput = `
+              <ul class="list-group">
+                <li class="list-group-item">${formattedAddress}</li>
+              </ul>
+            `;
+
+        // Address Components
+        //         var addressComponents = response.data.results[0].address_components;
+        //         var addressComponentsOutput = '<ul class="list-group">';
+        //         for(var i = 0;i < addressComponents.length;i++){
+        //           addressComponentsOutput += `
+        //             <li class="list-group-item"><strong>${addressComponents[i].types[0]}</strong>: ${addressComponents[i].long_name}</li>
+        //           `;
+        //         }
+        //         addressComponentsOutput += '</ul>';
+
+        // Geometry
+
+        var lat = response.data.results[0].geometry.location.lat;
+        var lng = response.data.results[0].geometry.location.lng;
+        var geometryOutput = `
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Latitude</strong>: ${lat}</li>
+                <li class="list-group-item"><strong>Longitude</strong>: ${lng}</li>
+              </ul>
+            `;
+
+        // Output to app
+        document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+        //        document.getElementById('address-components').innerHTML = addressComponentsOutput;
+        document.getElementById('geometry').innerHTML = geometryOutput;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  var locationForm = document.getElementById('location-form');
+
+
+
   var hari = new Date();
   var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
   var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
@@ -69,6 +130,7 @@
   }, 5000);
 
   return {
+
     data: function () {
       return {
         tanggal: namaHari[hari.getDay()] + ', ' + hari.getDate() + ' ' + monthNames[hari.getMonth()] + ' ' +
@@ -77,6 +139,55 @@
       }
     },
     methods: {
+      ceklokasi: function () {
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+            params: {
+              latlng: lati + "," + longi,
+              key: 'AIzaSyC27LzLfV5wYJydIW6-k5iygCt55pv8sGg'
+            }
+          })
+          .then(function (response) {
+            // Log full response
+            console.log(response);
+
+            // Formatted Address
+            var formattedAddress = response.data.results[0].formatted_address;
+            var formattedAddressOutput = `
+              <ul class="list-group">
+                <li class="list-group-item">${formattedAddress}</li>
+              </ul>
+            `;
+
+            // Address Components
+            //         var addressComponents = response.data.results[0].address_components;
+            //         var addressComponentsOutput = '<ul class="list-group">';
+            //         for(var i = 0;i < addressComponents.length;i++){
+            //           addressComponentsOutput += `
+            //             <li class="list-group-item"><strong>${addressComponents[i].types[0]}</strong>: ${addressComponents[i].long_name}</li>
+            //           `;
+            //         }
+            //         addressComponentsOutput += '</ul>';
+
+            // Geometry
+
+            var lat = response.data.results[0].geometry.location.lat;
+            var lng = response.data.results[0].geometry.location.lng;
+            var geometryOutput = `
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Latitude</strong>: ${lat}</li>
+                <li class="list-group-item"><strong>Longitude</strong>: ${lng}</li>
+              </ul>
+            `;
+
+            // Output to app
+            document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
+            //        document.getElementById('address-components').innerHTML = addressComponentsOutput;
+            document.getElementById('geometry').innerHTML = geometryOutput;
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      },
       ptr1: function (e, done) {
         var self = this;
         var $ = self.$$;
